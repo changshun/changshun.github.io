@@ -1,7 +1,7 @@
 # Site wide configuration
 
 title:            Changshun's Blog
-locale:           en_US
+locale:           zh-CN
 url:
 
 
@@ -29,11 +29,10 @@ owner:
   name: 石长顺
   avatar: bio-photo.jpg
   bio: "Describe your self."
-  email:
+  email: chosen.shih@gmail.com
   disqus-shortname:
   twitter: allenstoneshi
   facebook: #username
-  
   bing-verify:
   github: changshun
   stackoverflow: #123456/username   from a "http://stackoverflow.com/users/123456/username" link
