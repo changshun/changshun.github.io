@@ -1,10 +1,12 @@
 ---
 layout: post
-title: [Video]R: The most powerfulstatistical software
-date:   2015-10-06 21:15:59
+title:  "[Video]R: The most powerfulstatistical software"
+date:   2015-10-07 00:35:59
 categories: 
-- Tutorial
-tags: R
+- Tutorial 
+tags:
+- R
+- Video
 
 ---
 

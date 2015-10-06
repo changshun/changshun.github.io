@@ -25,7 +25,7 @@ tags:
 ---
 
 
-http://i.imgbox.com/Z7H0za0A.png
+![](http://i.imgbox.com/Z7H0za0A.png)
 
 **注意**: 尽量不要安装到中文路径下， 以后使用时可能会有麻烦
 
