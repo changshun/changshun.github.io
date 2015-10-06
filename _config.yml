@@ -36,7 +36,7 @@ owner:
   bing-verify:
   github: changshun
   stackoverflow: #123456/username   from a "http://stackoverflow.com/users/123456/username" link
-  weibo: #username
+  weibo: 1817741765
  
 
 include: [".htaccess"]

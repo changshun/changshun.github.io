@@ -5,12 +5,13 @@ tags: [about, Jekyll, theme, responsive]
 modified: 2014-08-08T20:53:07.573882-04:00
 comments: true
 image:
-  feature: sample-image-2.jpg
+  feature: sample-image-1.jpg
   credit: WeGraphics
   creditlink: http://wegraphics.net/downloads/free-ultimate-blurred-background-pack/
 ---
 
-我叫石长顺
+I am Changshun Shih(石长顺), a Master of Finance in WISE, Xiamen. I am living in Siming, Xiamen, China.
+
 
 ## Minimal Mistakes is all about:
 
