@@ -4,8 +4,8 @@ title: [Video]R: The most powerfulstatistical software
 date:   2015-10-06 21:15:59
 categories: 
 - Tutorial
-tags:
-- R
+tags: R
+
 ---
 
 
