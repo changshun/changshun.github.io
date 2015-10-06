@@ -1,10 +1,16 @@
 # Site navigation links
 
-- title: About
+- title: ABOUT
   url: /about/
 
-- title: Posts
+- title: POSTS
   url: /posts/
-
+  
 - title: WISE
   url: http://wise.xmu.edu.cn
+  
+- title: SEARCH
+  url: /search/
+  
+- title: TAGS
+  url: /tags/
