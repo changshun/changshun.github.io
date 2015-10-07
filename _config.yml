@@ -24,6 +24,11 @@ kramdown:
   use_coderay: false
   mathjax: true
 
+comments :
+   provider : duoshuo
+   duoshuo : 
+      short_name : changshun
+
 
 # Site owner
 owner:
