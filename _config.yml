@@ -24,10 +24,6 @@ kramdown:
   use_coderay: false
   mathjax: true
 
-comments :
-   provider : duoshuo
-   duoshuo : 
-      short_name : changshun
 
 
 # Site owner
@@ -36,7 +32,7 @@ owner:
   avatar: bio-photo.jpg
   bio: "Describe your self."
   email: chosen.shih@gmail.com
-  disqus-shortname:
+  # disqus-shortname: 
   twitter: allenstoneshi
   facebook: #username
   bing-verify:
