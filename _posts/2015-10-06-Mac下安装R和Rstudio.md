@@ -10,6 +10,18 @@ tags:
 - Mac
 
 ---
+
+<section id="table-of-contents" class="toc">
+  <header>
+    <h3>Overview</h3>
+  </header>
+<div id="drawer" markdown="1">
+*  Auto generated table of contents
+{:toc}
+</div>
+</section><!-- /#table-of-contents -->
+
+
 > 本教程参考：[Window下安装R和Rstudio](http://changshun.github.io/tutorial/2015/10/06/Window%E4%B8%8B%E5%AE%89%E8%A3%85R%E5%92%8CRstudio.html)
 
 ## 1.安装R 
