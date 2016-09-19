@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="WISE,R," />
+  <meta name="keywords" content="R,High Performance," />
 
 
 
@@ -84,49 +84,34 @@
 
 
 
-<meta name="description" content="R简介R
-R 是一种具有统计计算和绘图功能的编程语言和软件环境。
+<meta name="description" content="When performance matters?
+Performance does not always matters
+Correctness &amp;gt; Performance
+Performance matters in repeated jobs
 
-
-开源的
-免费的
-为统计而生
-受欢迎的
-
-
-截至2016年7月10日，R官网上已经上传了8736个包（package），代码分享网站github上的包更是数以万计。据revolutionanalytics(微软子公司)统计使用R作为他们数据处理和分析的公司有，Google，facebook,微软， Mozilla， New Yor">
+Why is my code so slow?
+Slowness is contagious: using other people’s sl">
 <meta property="og:type" content="article">
-<meta property="og:title" content="经济学研究的“数据控”">
-<meta property="og:url" content="http://changshun.github.io/2016/07/12/RClub/summerCamp/index.html">
+<meta property="og:title" content="High Performance Data Manipulation(Ken Ren)">
+<meta property="og:url" content="http://changshun.github.io/2016/09/19/学习笔记/HignPerformance/index.html">
 <meta property="og:site_name" content="Changshun的Blog">
-<meta property="og:description" content="R简介R
-R 是一种具有统计计算和绘图功能的编程语言和软件环境。
+<meta property="og:description" content="When performance matters?
+Performance does not always matters
+Correctness &amp;gt; Performance
+Performance matters in repeated jobs
 
-
-开源的
-免费的
-为统计而生
-受欢迎的
-
-
-截至2016年7月10日，R官网上已经上传了8736个包（package），代码分享网站github上的包更是数以万计。据revolutionanalytics(微软子公司)统计使用R作为他们数据处理和分析的公司有，Google，facebook,微软， Mozilla， New Yor">
-<meta property="og:image" content="http://i.imgbox.com/KNWUq7er.png">
-<meta property="og:image" content="https://wise-r.github.io/about/index/qrcode_for_gh_0dad10f96a96_430.jpg">
-<meta property="og:updated_time" content="2016-07-10T09:57:51.000Z">
+Why is my code so slow?
+Slowness is contagious: using other people’s sl">
+<meta property="og:updated_time" content="2016-09-19T09:06:53.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="经济学研究的“数据控”">
-<meta name="twitter:description" content="R简介R
-R 是一种具有统计计算和绘图功能的编程语言和软件环境。
+<meta name="twitter:title" content="High Performance Data Manipulation(Ken Ren)">
+<meta name="twitter:description" content="When performance matters?
+Performance does not always matters
+Correctness &amp;gt; Performance
+Performance matters in repeated jobs
 
-
-开源的
-免费的
-为统计而生
-受欢迎的
-
-
-截至2016年7月10日，R官网上已经上传了8736个包（package），代码分享网站github上的包更是数以万计。据revolutionanalytics(微软子公司)统计使用R作为他们数据处理和分析的公司有，Google，facebook,微软， Mozilla， New Yor">
-<meta name="twitter:image" content="http://i.imgbox.com/KNWUq7er.png">
+Why is my code so slow?
+Slowness is contagious: using other people’s sl">
 
 
 
@@ -147,9 +132,9 @@ R 是一种具有统计计算和绘图功能的编程语言和软件环境。
 
 
 
-  <link rel="canonical" href="http://changshun.github.io/2016/07/12/RClub/summerCamp/"/>
+  <link rel="canonical" href="http://changshun.github.io/2016/09/19/学习笔记/HignPerformance/"/>
 
-  <title> 经济学研究的“数据控” | Changshun的Blog </title>
+  <title> High Performance Data Manipulation(Ken Ren) | Changshun的Blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -312,7 +297,7 @@ R 是一种具有统计计算和绘图功能的编程语言和软件环境。
             
             
               
-                经济学研究的“数据控”
+                High Performance Data Manipulation(Ken Ren)
               
             
           </h1>
@@ -324,19 +309,50 @@ R 是一种具有统计计算和绘图功能的编程语言和软件环境。
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-07-12T14:30:00+08:00" content="2016-07-12">
-              2016-07-12
+            <time itemprop="dateCreated" datetime="2016-09-19T16:30:30+08:00" content="2016-09-19">
+              2016-09-19
             </time>
           </span>
 
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/学习笔记/" itemprop="url" rel="index">
+                    <span itemprop="name">学习笔记</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/学习笔记/R/" itemprop="url" rel="index">
+                    <span itemprop="name">R</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
           
 
           
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/07/12/RClub/summerCamp/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/07/12/RClub/summerCamp/" itemprop="commentsCount"></span>
+                <a href="/2016/09/19/学习笔记/HignPerformance/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/09/19/学习笔记/HignPerformance/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -359,40 +375,46 @@ R 是一种具有统计计算和绘图功能的编程语言和软件环境。
       
 
       
-        <h1 id="R简介"><a href="#R简介" class="headerlink" title="R简介"></a>R简介</h1><h2 id="R"><a href="#R" class="headerlink" title="R"></a>R</h2><blockquote>
-<p><code>R</code> 是一种具有统计计算和绘图功能的编程语言和软件环境。</p>
-</blockquote>
-<ul>
-<li>开源的</li>
-<li>免费的</li>
-<li>为统计而生</li>
-<li>受欢迎的</li>
+        <h2 id="When-performance-matters"><a href="#When-performance-matters" class="headerlink" title="When performance matters?"></a>When performance matters?</h2><ul>
+<li>Performance does not always matters</li>
+<li>Correctness &gt; Performance</li>
+<li>Performance matters in repeated jobs</li>
 </ul>
-<p><img src="http://i.imgbox.com/KNWUq7er.png" alt=""></p>
-<p>截至2016年7月10日，R官网上已经上传了8736个包（package），代码分享网站github上的包更是数以万计。<br>据revolutionanalytics(微软子公司)统计使用R作为他们数据处理和分析的公司有，Google，facebook,微软， Mozilla， New York Times,Twitter, Uber等等。国内没有专门统计， 我们知道的，京东等公司都会使用R。</p>
-<h2 id="R能做什么？"><a href="#R能做什么？" class="headerlink" title="R能做什么？"></a>R能做什么？</h2><p><a href="https://cran.r-project.org/web/views/" target="_blank" rel="external">https://cran.r-project.org/web/views/</a></p>
-<p>Bayesian<br>ChemPhys<br>ClinicalTrials<br>Cluster<br>DifferentialEquations<br>Distributions<br>Econometrics<br>Environmetrics<br>ExperimentalDesign<br>Finance<br>Genetics<br>Graphics<br>HighPerformanceComputing<br>MachineLearning<br>MedicalImaging<br>MetaAnalysis<br>Multivariate<br>NaturalLanguageProcessing<br>NumericalMathematics<br>OfficialStatistics<br>Optimization<br>Pharmacokinetics<br>Phylogenetics<br>Psychometrics<br>ReproducibleResearch<br>Robust<br>SocialSciences<br>Spatial<br>SpatioTemporal<br>Survival<br>TimeSeries<br>WebTechnologies<br>gR</p>
-<h2 id="几个例子"><a href="#几个例子" class="headerlink" title="几个例子"></a>几个例子</h2><ol>
-<li>空间地理（<a href="http://changshun.github.io/putian/blackhospital.html">你的家乡有没有莆田系医院</a>）</li>
-<li>爬虫+文本挖掘（<a href="http://changshun.github.io/2016/07/08/wordcloud/">绘制WISE老师论文关键词词云</a>）</li>
-<li>求解金融模型</li>
-<li>蒙特卡罗模拟</li>
-</ol>
-<h1 id="WISER-Club"><a href="#WISER-Club" class="headerlink" title="WISER Club"></a>WISER Club</h1><h2 id="WISER-Club-的历史"><a href="#WISER-Club-的历史" class="headerlink" title="WISER Club 的历史"></a>WISER Club 的历史</h2><p>开始于2013年，任坤，任乾大神，这俩是真大神。写R包，办私募。创建伊始，WISE R Club只是班级内部几个人的交流。</p>
-<p>2014年，孙小军学长开始面向WISE研一开设R入门课程。</p>
-<h2 id="过去的一年我们做了什么？"><a href="#过去的一年我们做了什么？" class="headerlink" title="过去的一年我们做了什么？"></a>过去的一年我们做了什么？</h2><p>去年，我们的吸纳了经院统计系的同学， 组织者达到了6、7个。我们开设了R-Basic和R-Topic两个系列课程，前者进行了四次课程，后者进行了大约9次课程，包含的话题有，高级数据处理、ggplot2可视化、文本处理及文本挖掘、蒙特卡罗模拟、使用Rmarkdown和LaTeX入门， 爬虫等等。</p>
-<h1 id="下一学年的计划"><a href="#下一学年的计划" class="headerlink" title="下一学年的计划"></a>下一学年的计划</h1><ol>
-<li>11月份承办中国R语言会议（厦门会场）</li>
-<li>加入python系列课程</li>
-<li>组织更多的数据竞赛</li>
-</ol>
-<h1 id="联系我们"><a href="#联系我们" class="headerlink" title="联系我们"></a>联系我们</h1><ol>
-<li>微信公众号：<img src="https://wise-r.github.io/about/index/qrcode_for_gh_0dad10f96a96_430.jpg" alt=""></li>
-<li>知乎专栏: <a href="https://zhuanlan.zhihu.com/wiser" target="_blank" rel="external">https://zhuanlan.zhihu.com/wiser</a></li>
-<li>Github: <a href="https://github.com/wise-r" target="_blank" rel="external">https://github.com/wise-r</a></li>
-<li>技术博客: <a href="https://wise-r.github.io/" target="_blank" rel="external">https://wise-r.github.io/</a></li>
-</ol>
-<p><strong>QQ群号暂且不要公布</strong></p>
+<h2 id="Why-is-my-code-so-slow"><a href="#Why-is-my-code-so-slow" class="headerlink" title="Why is my code so slow?"></a>Why is my code so slow?</h2><ul>
+<li>Slowness is contagious: using other people’s slow code also slows down your code</li>
+<li>Bad practices: frequent reallocation, non-vectorized compuation, etc.</li>
+<li>The job is too complex to be run fast in any way</li>
+</ul>
+<h2 id="Measuring-code-performance"><a href="#Measuring-code-performance" class="headerlink" title="Measuring code performance"></a>Measuring code performance</h2><figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">system.time(lapply(<span class="number">1</span>:<span class="number">10000</span>, rnorm))</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">##    user  system elapsed </div><div class="line">##   6.339   0.293   7.160</div></pre></td></tr></table></figure>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">system.time(<span class="keyword">for</span>(i <span class="keyword">in</span> <span class="number">1</span>:<span class="number">10000</span>)rnorm(i))</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">##    user  system elapsed </div><div class="line">##   5.668   0.350   7.298</div></pre></td></tr></table></figure>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">microbenchmark::microbenchmark(lapply = lapply(<span class="number">1</span>:<span class="number">100</span>, <span class="keyword">function</span>(x) rnorm(<span class="number">1000</span>)),</div><div class="line"> for_loop = <span class="keyword">for</span> (i <span class="keyword">in</span> <span class="number">1</span>:<span class="number">100</span>) rnorm(<span class="number">1000</span>))</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">## Unit: milliseconds</div><div class="line">##      expr       min       lq     mean   median       uq      max neval</div><div class="line">##    lapply 10.102221 11.21580 12.37603 11.95803 13.25440 20.33809   100</div><div class="line">##  for_loop  9.807794 10.92933 11.90900 11.78046 12.73029 15.50422   100</div></pre></td></tr></table></figure>
+<h2 id="Bad-practice-Frequent-reallocation"><a href="#Bad-practice-Frequent-reallocation" class="headerlink" title="Bad practice: Frequent reallocation"></a>Bad practice: Frequent reallocation</h2><h3 id="Reallocate-in-each-iteration"><a href="#Reallocate-in-each-iteration" class="headerlink" title="Reallocate in each iteration"></a>Reallocate in each iteration</h3><figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">mycusum1 &lt;- <span class="keyword">function</span>(x)&#123;</div><div class="line">  y &lt;- numeric()</div><div class="line">  sum_x = <span class="number">0</span></div><div class="line">  <span class="keyword">for</span> (xi <span class="keyword">in</span> x) &#123;</div><div class="line">    sum_x &lt;- sum_x+xi</div><div class="line">    y &lt;- c(y, sum_x)</div><div class="line">  &#125;</div><div class="line">  <span class="keyword">return</span>(y)</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="Allocate-once-before-iteration"><a href="#Allocate-once-before-iteration" class="headerlink" title="Allocate once before iteration"></a>Allocate once before iteration</h3><figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">mycusum2 &lt;- <span class="keyword">function</span>(x)&#123;</div><div class="line">  y &lt;- numeric(length(x))</div><div class="line">  sum_x = <span class="number">0</span></div><div class="line">  y[<span class="number">1</span>] &lt;- x[<span class="number">1</span>]</div><div class="line">  <span class="keyword">for</span> (i <span class="keyword">in</span> <span class="number">2</span>:length(x)) &#123;</div><div class="line">   y[[i]] = y[i-<span class="number">1</span>] + x[i]</div><div class="line">  &#125;</div><div class="line">  <span class="keyword">return</span>(y)</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">x &lt;- rnorm(<span class="number">100</span>)</div><div class="line"><span class="keyword">library</span>(microbenchmark)</div><div class="line">microbenchmark(mycusum1(x), mycusum2(x), cumsum(x))</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">## Unit: nanoseconds</div><div class="line">##         expr    min       lq      mean   median       uq    max neval</div><div class="line">##  mycusum1(x)  89382 101388.0 115093.35 107565.5 117922.0 277584   100</div><div class="line">##  mycusum2(x) 136493 149666.5 171331.72 157004.0 173731.5 403474   100</div><div class="line">##    cumsum(x)    415    576.0   1107.63    697.5   1259.0   3336   100</div></pre></td></tr></table></figure>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">x &lt;- rnorm(<span class="number">1000</span>)</div><div class="line">microbenchmark(mycusum1(x), mycusum2(x), cumsum(x))</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">## Unit: microseconds</div><div class="line">##         expr      min       lq       mean   median        uq       max</div><div class="line">##  mycusum1(x) 1844.218 2280.448 3134.49053 2883.048 3649.8135 12382.487</div><div class="line">##  mycusum2(x) 1131.872 1327.814 2282.94622 1616.663 1963.2655 16333.073</div><div class="line">##    cumsum(x)    2.203    3.710    6.01617    5.805    7.3325    21.596</div><div class="line">##  neval</div><div class="line">##    100</div><div class="line">##    100</div><div class="line">##    100</div></pre></td></tr></table></figure>
+<h2 id="Bad-practice-Non-vectorized-computation"><a href="#Bad-practice-Non-vectorized-computation" class="headerlink" title="Bad practice: Non-vectorized computation"></a>Bad practice: Non-vectorized computation</h2><figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">algo1_for &lt;- <span class="keyword">function</span>(n) &#123;</div><div class="line">  res &lt;- <span class="number">0</span></div><div class="line">  <span class="keyword">for</span> (i <span class="keyword">in</span> seq_len(n)) &#123;</div><div class="line">    res &lt;- res + <span class="number">1</span> / i ^ <span class="number">2</span></div><div class="line">  &#125;</div><div class="line">  res</div><div class="line">&#125;</div><div class="line"></div><div class="line">algo1_vec &lt;- <span class="keyword">function</span>(n) &#123;</div><div class="line">  sum(<span class="number">1</span> / seq_len(n) ^ <span class="number">2</span>)</div><div class="line">&#125;</div><div class="line"></div><div class="line">microbenchmark(algo1_for(<span class="number">1e4</span>), algo1_vec(<span class="number">1e4</span>))</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">## Unit: microseconds</div><div class="line">##              expr      min        lq      mean    median        uq</div><div class="line">##  algo1_for(10000) 4691.365 5984.8850 9216.1017 7574.1820 11114.447</div><div class="line">##  algo1_vec(10000)   98.640  113.1185  139.9632  127.5585   149.615</div><div class="line">##        max neval</div><div class="line">##  28963.285   100</div><div class="line">##    359.271   100</div></pre></td></tr></table></figure>
+<h2 id="The-Good-and-the-bad-copy-on-modify"><a href="#The-Good-and-the-bad-copy-on-modify" class="headerlink" title="The Good and the bad: copy-on-modify"></a>The Good and the bad: copy-on-modify</h2><p>All symbols in R has a reference counter n. The following expressions triggers copy-on-modify when n &gt; 1:</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">x[range] &lt;- v</div><div class="line">x[[i]] &lt;- v</div><div class="line">x$item &lt;- v</div></pre></td></tr></table></figure>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">x &lt;- c(<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>)</div><div class="line">y &lt;- x</div><div class="line">y[<span class="number">1</span>] &lt;- <span class="number">0</span> <span class="comment"># copy!</span></div></pre></td></tr></table></figure>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">v &lt;- c(<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>)</div><div class="line">f &lt;- <span class="keyword">function</span>(x) &#123;</div><div class="line">  x[<span class="number">1</span>] &lt;- <span class="number">0</span> <span class="comment"># copy!</span></div><div class="line">  x</div><div class="line">&#125;</div><div class="line">f(v)</div></pre></td></tr></table></figure>
+<p>The following code does not trigger any copy:</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">x &lt;- c(<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>)</div><div class="line">tracemem(x)</div><div class="line">y &lt;- x</div><div class="line">tracemem(y)</div><div class="line">rm(x)</div><div class="line">y[<span class="number">1</span>] &lt;- <span class="number">0</span> <span class="comment"># no copy!</span></div></pre></td></tr></table></figure>
+<h2 id="How-can-I-make-my-code-faster"><a href="#How-can-I-make-my-code-faster" class="headerlink" title="How can I make my code faster?"></a>How can I make my code faster?</h2><ul>
+<li>Profile code to find bottleneck</li>
+<li>Use built-in functions, vectorization and matrix algorithms (10-100x)</li>
+<li>Use high-performance packages (data.table) (5-1000x)</li>
+<li>Use MKL-powered R distribution (Microsoft R Open)</li>
+<li>Compare code performance with system.time or microbenchmark</li>
+<li>Use compiler to compile R code into byte-code (2-8x)</li>
+<li>Use parallel functions to take advantage of multiple cores (4-6x)</li>
+<li>Rewrite R code into equivalent C++ code via Rcpp and extensions (0-1000x)</li>
+</ul>
 
       
     </div>
@@ -415,9 +437,9 @@ R 是一种具有统计计算和绘图功能的编程语言和软件环境。
       
         <div class="post-tags">
           
-            <a href="/tags/WISE/" rel="tag">#WISE</a>
-          
             <a href="/tags/R/" rel="tag">#R</a>
+          
+            <a href="/tags/High-Performance/" rel="tag">#High Performance</a>
           
         </div>
       
@@ -426,17 +448,13 @@ R 是一种具有统计计算和绘图功能的编程语言和软件环境。
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/07/10/RClub/summerCamp/" rel="next" title="">
-                <i class="fa fa-chevron-left"></i> 
+              <a href="/2016/07/12/学习笔记/城投债何去何从/" rel="next" title="【债券笔记】：地方政府债务新政下城投债何去何从">
+                <i class="fa fa-chevron-left"></i> 【债券笔记】：地方政府债务新政下城投债何去何从
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/07/12/sketch/" rel="prev" title="经济学研究的“数据控”">
-                经济学研究的“数据控” <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -451,10 +469,10 @@ R 是一种具有统计计算和绘图功能的编程语言和软件环境。
 
     <div class="post-spread">
       
-        <div class="ds-share flat" data-thread-key="2016/07/12/RClub/summerCamp/"
-     data-title="经济学研究的“数据控”"
+        <div class="ds-share flat" data-thread-key="2016/09/19/学习笔记/HignPerformance/"
+     data-title="High Performance Data Manipulation(Ken Ren)"
      data-content=""
-     data-url="http://changshun.github.io/2016/07/12/RClub/summerCamp/">
+     data-url="http://changshun.github.io/2016/09/19/学习笔记/HignPerformance/">
   <div class="ds-share-inline">
     <ul  class="ds-share-icons-16">
 
@@ -481,8 +499,8 @@ R 是一种具有统计计算和绘图功能的编程语言和软件环境。
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2016/07/12/RClub/summerCamp/"
-           data-title="经济学研究的“数据控”" data-url="http://changshun.github.io/2016/07/12/RClub/summerCamp/">
+      <div class="ds-thread" data-thread-key="2016/09/19/学习笔记/HignPerformance/"
+           data-title="High Performance Data Manipulation(Ken Ren)" data-url="http://changshun.github.io/2016/09/19/学习笔记/HignPerformance/">
       </div>
     
   </div>
@@ -616,7 +634,7 @@ R 是一种具有统计计算和绘图功能的编程语言和软件环境。
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#R简介"><span class="nav-number">1.</span> <span class="nav-text">R简介</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#R"><span class="nav-number">1.1.</span> <span class="nav-text">R</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#R能做什么？"><span class="nav-number">1.2.</span> <span class="nav-text">R能做什么？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#几个例子"><span class="nav-number">1.3.</span> <span class="nav-text">几个例子</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#WISER-Club"><span class="nav-number">2.</span> <span class="nav-text">WISER Club</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#WISER-Club-的历史"><span class="nav-number">2.1.</span> <span class="nav-text">WISER Club 的历史</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#过去的一年我们做了什么？"><span class="nav-number">2.2.</span> <span class="nav-text">过去的一年我们做了什么？</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#下一学年的计划"><span class="nav-number">3.</span> <span class="nav-text">下一学年的计划</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#联系我们"><span class="nav-number">4.</span> <span class="nav-text">联系我们</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#When-performance-matters"><span class="nav-number">1.</span> <span class="nav-text">When performance matters?</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Why-is-my-code-so-slow"><span class="nav-number">2.</span> <span class="nav-text">Why is my code so slow?</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Measuring-code-performance"><span class="nav-number">3.</span> <span class="nav-text">Measuring code performance</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Bad-practice-Frequent-reallocation"><span class="nav-number">4.</span> <span class="nav-text">Bad practice: Frequent reallocation</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Reallocate-in-each-iteration"><span class="nav-number">4.1.</span> <span class="nav-text">Reallocate in each iteration</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Allocate-once-before-iteration"><span class="nav-number">4.2.</span> <span class="nav-text">Allocate once before iteration</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Bad-practice-Non-vectorized-computation"><span class="nav-number">5.</span> <span class="nav-text">Bad practice: Non-vectorized computation</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#The-Good-and-the-bad-copy-on-modify"><span class="nav-number">6.</span> <span class="nav-text">The Good and the bad: copy-on-modify</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#How-can-I-make-my-code-faster"><span class="nav-number">7.</span> <span class="nav-text">How can I make my code faster?</span></a></li></ol></div>
             
           </div>
         </section>
