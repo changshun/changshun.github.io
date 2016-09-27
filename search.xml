@@ -4,6 +4,134 @@
   
     
     <entry>
+      <title><![CDATA[科学计算之 `scipy`]]></title>
+      <url>http://shichangshun.cn/2016/09/27/scipy/</url>
+      <content type="html"><![CDATA[<h2 id="一、Scipy概述"><a href="#一、Scipy概述" class="headerlink" title="一、Scipy概述"></a>一、<code>Scipy</code>概述</h2><p><code>SciPy</code>基于<code>NumPy</code>提供了更为丰富和高级的功能扩展，在统计、优化、插值、数值积分、时频转换等方面提供了大量的可用函数，基本覆盖了基础科学计算相关的问题。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</div><div class="line"><span class="keyword">import</span> scipy.stats <span class="keyword">as</span> stats</div><div class="line"><span class="keyword">import</span> scipy.optimize <span class="keyword">as</span> opt</div></pre></td></tr></table></figure>
+<h2 id="二、统计部分"><a href="#二、统计部分" class="headerlink" title="二、统计部分"></a>二、统计部分</h2><h3 id="2-1-生成随机数"><a href="#2-1-生成随机数" class="headerlink" title="2.1 生成随机数"></a>2.1 生成随机数</h3><ul>
+<li><code>rv_continuous.rvs(size=n)</code>: 其中<code>rv_continuous</code>表示连续型的随机分布，如均匀分布（<code>uniform</code>）、正态分布（<code>norm</code>）、贝塔分布（<code>beta</code>）等 </li>
+<li><code>rv_discrete.rvs(size=n)</code>: <code>rv_discrete</code>表示离散型的随机分布，如伯努利分布（<code>bernoulli</code>）、几何分布（<code>geom</code>）、泊松分布（<code>poisson</code>）等。</li>
+</ul>
+<p>见:<a href="http://docs.scipy.org/doc/scipy/reference/stats.html" target="_blank" rel="external">http://docs.scipy.org/doc/scipy/reference/stats.html</a></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">r_unif = stats.uniform.rvs( size = <span class="number">10</span>)</div><div class="line">print(r_unif)</div></pre></td></tr></table></figure>
+<pre><code>[ 0.2924269   0.29822465  0.48178216  0.22004046  0.90243864  0.37951304
+  0.63613836  0.64975187  0.40374609  0.31864229]
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">rv_beta = stats.beta.rvs(size = <span class="number">10</span>, a = <span class="number">4</span>, b =<span class="number">2</span>)</div><div class="line">print(rv_beta)</div></pre></td></tr></table></figure>
+<pre><code>[ 0.7330703   0.79941641  0.84296951  0.96649249  0.58666597  0.90552661
+  0.81672749  0.62606183  0.53123816  0.33406139]
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">beta = stats.beta(a = <span class="number">4</span>, b = <span class="number">2</span>)</div><div class="line">beta.rvs(size = <span class="number">10</span>)</div></pre></td></tr></table></figure>
+<pre><code>array([ 0.54825343,  0.48858131,  0.78255051,  0.66667343,  0.59489605,
+        0.74490324,  0.72473494,  0.54107229,  0.84224194,  0.64791601])
+</code></pre><h3 id="2-2-假设检验"><a href="#2-2-假设检验" class="headerlink" title="2.2 假设检验"></a>2.2 假设检验</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">norm_dist = stats.norm(loc = <span class="number">0.5</span>, scale = <span class="number">2</span>) <span class="comment"># loc mean， scale </span></div><div class="line">n = <span class="number">200</span></div><div class="line">dat = norm_dist.rvs(size = n)</div><div class="line">np.mean(dat)</div></pre></td></tr></table></figure>
+<pre><code>0.40692986915948354
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">np.median(dat)</div></pre></td></tr></table></figure>
+<pre><code>0.36653201314410355
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">np.std(dat)</div></pre></td></tr></table></figure>
+<pre><code>1.8750494924213752
+</code></pre><p>使用K-S检验（ Kolmogorov-Smirnov test）检验正态分布性,使用<code>kstest</code></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">mu = np.mean(dat)</div><div class="line">sigma = np.std(dat)</div><div class="line">stat_val, p_val = stats.kstest(dat, <span class="string">'norm'</span>, (mu, sigma))</div></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">print(<span class="string">'KS-statistic D = %6.3f p-value = %6.4f'</span> % (stat_val, p_val))</div></pre></td></tr></table></figure>
+<pre><code>KS-statistic D =  0.047 p-value = 0.7663
+</code></pre><p>t-test检验均值是否为0</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">stat_val, p_val = stats.ttest_1samp(dat, <span class="number">0</span>)</div><div class="line">print(<span class="string">'One-sample t-statistic D = %6.3f p-value = %6.4f'</span> % (stat_val, p_val))</div></pre></td></tr></table></figure>
+<pre><code>One-sample t-statistic D =  3.061 p-value = 0.0025
+</code></pre><p>拒绝原假设: 数据的均值为0</p>
+<p>双样本<code>t-test</code>(<code>ttest_ind</code>)</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">norm_dist2 = stats.norm(loc=<span class="number">-0.2</span>, scale=<span class="number">1.2</span>)</div><div class="line">dat2 = norm_dist2.rvs(size=n/<span class="number">2</span>)</div><div class="line">stat_val, p_val = stats.ttest_ind(dat, dat2, equal_var=<span class="keyword">False</span>)</div><div class="line">print(<span class="string">'Two-sample t-statistic D = %6.3f, p-value = %6.4f'</span> % (stat_val, p_val))</div></pre></td></tr></table></figure>
+<pre><code>Two-sample t-statistic D =  3.151, p-value = 0.0018
+
+
+/Users/shihchosen/anaconda/lib/python3.5/site-packages/scipy/stats/_continuous_distns.py:128: VisibleDeprecationWarning: using a non-integer number instead of an integer will result in an error in the future
+  return self._random_state.standard_normal(self._size)
+/Users/shihchosen/anaconda/lib/python3.5/site-packages/numpy/core/fromnumeric.py:225: VisibleDeprecationWarning: using a non-integer number instead of an integer will result in an error in the future
+  return reshape(newshape, order=order)
+</code></pre><h3 id="2-3-其他函数"><a href="#2-3-其他函数" class="headerlink" title="2.3 其他函数"></a>2.3 其他函数</h3><ul>
+<li><code>cdf</code></li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">g_dist = stats.gamma(a = <span class="number">2</span>)</div><div class="line">print(g_dist.cdf([<span class="number">2</span>,<span class="number">4</span>,<span class="number">5</span>]))</div></pre></td></tr></table></figure>
+<pre><code>[ 0.59399415  0.90842181  0.95957232]
+</code></pre><ul>
+<li>pdf</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">print(g_dist.pdf([<span class="number">0.25</span>,<span class="number">.5</span>,<span class="number">.95</span>]))</div></pre></td></tr></table></figure>
+<pre><code>[ 0.1947002   0.30326533  0.36740397]
+</code></pre><p>对于一个给定的分布，可以用<code>moment</code>很方便的查看分布的矩信息，例如我们查看<code>N(0,1)</code>的六阶原点矩</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">stats.norm.moment(<span class="number">6</span>, loc = <span class="number">0</span>, scale = <span class="number">1</span>)</div></pre></td></tr></table></figure>
+<pre><code>15.000000000895332
+</code></pre><p><code>describe</code>函数提供对数据集的统计描述分析，包括数据样本大小，极值，均值，方差，偏度和峰度</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">norm_dist = stats.norm(loc=<span class="number">0</span>, scale=<span class="number">1.8</span>)</div><div class="line">dat = norm_dist.rvs(size = <span class="number">100</span>)</div><div class="line">info = stats.describe(dat)</div></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">print(<span class="string">"Data size is: "</span> + str(info[<span class="number">0</span>]))</div><div class="line">print(<span class="string">"Minimum value is: "</span> + str(info[<span class="number">1</span>][<span class="number">0</span>]))</div><div class="line">print(<span class="string">"Maximum value is: "</span> + str(info[<span class="number">1</span>][<span class="number">1</span>]))</div><div class="line">print(<span class="string">"Arithmetic mean is: "</span> + str(info[<span class="number">2</span>]))</div><div class="line">print(<span class="string">"Unbiased variance is: "</span> + str(info[<span class="number">3</span>]))</div><div class="line">print(<span class="string">"Biased skewness is: "</span> + str(info[<span class="number">4</span>]))</div><div class="line">print(<span class="string">"Biased kurtosis is: "</span> + str(info[<span class="number">5</span>]))</div></pre></td></tr></table></figure>
+<pre><code>Data size is: 100
+Minimum value is: -4.28963191875
+Maximum value is: 3.39969135101
+Arithmetic mean is: -0.0583104535814
+Unbiased variance is: 2.68846427562
+Biased skewness is: 0.04732288942546752
+Biased kurtosis is: -0.379124958678446
+</code></pre><p><code>MLE</code></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">norm_dist = stats.norm(loc=<span class="number">0</span>, scale=<span class="number">1.8</span>)</div><div class="line">dat = norm_dist.rvs(size=<span class="number">100</span>)</div><div class="line">mu, sigma = stats.norm.fit(dat)</div><div class="line">print(<span class="string">"MLE of data mean:"</span> + str(mu))</div><div class="line">print(<span class="string">"MLE of data standard deviation:"</span> + str(sigma))</div></pre></td></tr></table></figure>
+<pre><code>MLE of data mean:-0.0461510505165
+MLE of data standard deviation:1.72294901553
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">norm_dist = stats.norm()</div><div class="line">dat1 = norm_dist.rvs(size=<span class="number">100</span>)</div><div class="line">exp_dist = stats.expon()</div><div class="line">dat2 = exp_dist.rvs(size=<span class="number">100</span>)</div><div class="line">cor, pval = stats.pearsonr(dat1, dat2)</div><div class="line">print(<span class="string">"Pearson correlation coefficient: "</span> + str(cor))</div><div class="line">cor, pval = stats.pearsonr(dat1, dat2)</div><div class="line">print(<span class="string">"Spearman's rank correlation coefficient: "</span> + str(cor))</div></pre></td></tr></table></figure>
+<pre><code>Pearson correlation coefficient: -0.0299016363187
+Spearman&apos;s rank correlation coefficient: -0.0299016363187
+</code></pre><p>线性回归</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">x = stats.chi2.rvs(<span class="number">3</span>, size=<span class="number">50</span>)</div><div class="line">y = <span class="number">2.5</span> + <span class="number">1.2</span> * x + stats.norm.rvs(size=<span class="number">50</span>, loc=<span class="number">0</span>, scale=<span class="number">1.5</span>)</div><div class="line">slope, intercept, r_value, p_value, std_err = stats.linregress(x, y)</div><div class="line">print(<span class="string">"Slope of fitted model is:"</span> , slope)</div><div class="line"><span class="keyword">print</span> (<span class="string">"Intercept of fitted model is:"</span>, intercept)</div><div class="line">print(<span class="string">"R-squared:"</span>, r_value**<span class="number">2</span>)</div></pre></td></tr></table></figure>
+<pre><code>Slope of fitted model is: 1.15543693896
+Intercept of fitted model is: 2.75126872589
+R-squared: 0.770651967105
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">stats.linregress(x, y)</div></pre></td></tr></table></figure>
+<pre><code>LinregressResult(slope=1.1554369389622545, intercept=2.7512687258945392, rvalue=0.87786785287120206, pvalue=5.8204930077311082e-17, stderr=0.090979593726512847)
+</code></pre><h2 id="三、优化部分"><a href="#三、优化部分" class="headerlink" title="三、优化部分"></a>三、优化部分</h2><h3 id="3-1-无约束优化问题"><a href="#3-1-无约束优化问题" class="headerlink" title="3.1 无约束优化问题"></a>3.1 无约束优化问题</h3><p>下面的就是无约束优化，<br>$$<br>\mathrm{min}\quad f(x) = x^2 - 4.8x + 1.2<br>$$</p>
+<p>下面的是约束优化：<br>$$<br>\mathrm{min}\quad f(x) = x^2 - 4.8x + 1.2\<br>s.t.\quad x \geq 0<br>$$</p>
+<p>考虑<a href="https://en.wikipedia.org/wiki/Rosenbrock_function" target="_blank" rel="external">Rosenbrock</a>函数：<br>$$<br>f(\mathrm{x}) = \sum_{i =1}^{N-1} 100(x_i - x<em>i^2)^2 + (1 - x</em>{i-1})^2<br>$$</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">rosen</span><span class="params">(x)</span>:</span></div><div class="line">    <span class="string">"""The Rosenbrock function"""</span></div><div class="line">    <span class="keyword">return</span> sum(<span class="number">100.0</span>*(x[<span class="number">1</span>:]-x[:<span class="number">-1</span>]**<span class="number">2.0</span>)**<span class="number">2.0</span> + (<span class="number">1</span>-x[:<span class="number">-1</span>])**<span class="number">2.0</span>)</div></pre></td></tr></table></figure>
+<h4 id="3-1-1-Nelder-Mead单纯形法"><a href="#3-1-1-Nelder-Mead单纯形法" class="headerlink" title="3.1.1 Nelder-Mead单纯形法"></a>3.1.1 Nelder-Mead单纯形法</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">x_0 = np.array([<span class="number">0.5</span>, <span class="number">1.6</span>, <span class="number">1.1</span>, <span class="number">0.8</span>, <span class="number">1.2</span>])</div></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">res = opt.minimize(rosen, x_0, method=<span class="string">'nelder-mead'</span>, options=&#123;<span class="string">'xtol'</span>: <span class="number">1e-8</span>, <span class="string">'disp'</span>: <span class="keyword">True</span>&#125;)</div><div class="line">print(res)</div></pre></td></tr></table></figure>
+<pre><code>Optimization terminated successfully.
+         Current function value: 0.000000
+         Iterations: 436
+         Function evaluations: 706
+ final_simplex: (array([[ 1.        ,  1.        ,  1.        ,  1.        ,  1.        ],
+       [ 1.        ,  1.        ,  1.        ,  1.        ,  1.        ],
+       [ 1.        ,  1.        ,  1.        ,  1.        ,  0.99999999],
+       [ 1.        ,  1.        ,  1.        ,  1.        ,  1.        ],
+       [ 1.        ,  1.        ,  1.        ,  1.        ,  1.00000001],
+       [ 1.        ,  1.        ,  1.        ,  1.        ,  1.00000001]]), array([  1.66149699e-17,   6.32117429e-17,   7.44105349e-17,
+         8.24396866e-17,   9.53208876e-17,   1.07882961e-16]))
+           fun: 1.6614969876635003e-17
+       message: &apos;Optimization terminated successfully.&apos;
+          nfev: 706
+           nit: 436
+        status: 0
+       success: True
+             x: array([ 1.,  1.,  1.,  1.,  1.])
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">res = opt.minimize(rosen, x_0, method=<span class="string">'powell'</span>, options=&#123;<span class="string">'xtol'</span>: <span class="number">1e-8</span>, <span class="string">'disp'</span>: <span class="keyword">True</span>&#125;)</div><div class="line">print(res)</div></pre></td></tr></table></figure>
+<pre><code>Optimization terminated successfully.
+         Current function value: 0.000000
+         Iterations: 24
+         Function evaluations: 1924
+   direc: array([[  4.55396239e-04,   1.36370090e-03,   2.24582768e-03,
+          4.12213272e-03,   7.99477493e-03],
+       [ -1.91529419e-03,  -3.00633609e-03,  -6.77652553e-03,
+         -1.34919171e-02,  -2.67196797e-02],
+       [ -3.76393598e-02,  -2.30587398e-02,   1.05038412e-02,
+          3.43628871e-05,   7.36675942e-05],
+       [  0.00000000e+00,   0.00000000e+00,   0.00000000e+00,
+          1.00000000e+00,   0.00000000e+00],
+       [  4.00791294e-06,   1.15417958e-05,   2.01270425e-05,
+          5.08729704e-05,   1.09096801e-04]])
+     fun: 2.041828615178145e-21
+ message: &apos;Optimization terminated successfully.&apos;
+    nfev: 1924
+     nit: 24
+  status: 0
+ success: True
+       x: array([ 1.,  1.,  1.,  1.,  1.])
+</code></pre>]]></content>
+    </entry>
+    
+    <entry>
       <title><![CDATA[Highcharts Demo]]></title>
       <url>http://shichangshun.cn/2016/09/20/11/</url>
       <content type="html"><![CDATA[<h2 id="Testing-interactive-graphics"><a href="#Testing-interactive-graphics" class="headerlink" title="Testing interactive graphics"></a>Testing interactive graphics</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">library(highcharter)</div></pre></td></tr></table></figure>
