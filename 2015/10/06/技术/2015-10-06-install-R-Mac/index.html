@@ -1,20 +1,58 @@
-extends partial/layout
+<!DOCTYPE html><html lang="zh-Hans"><head><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><title> Mac下安装R和Rstudio | Changshun的Blog</title><meta name="description" content="Mac下安装R和Rstudio - Changshun"><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="short icon" href="/favicon.png"><link rel="stylesheet" href="/css/casual.css"><link rel="stylesheet" href="/css/semantic.min.css"><link rel="search" type="application/opensearchdescription+xml" href="http://shichangshun.cn/atom.xml" title="Changshun的Blog"></head><body><div class="sidebar"><div class="ui vertical inverted menu"><div class="h100"></div><h3 class="ui inverted aligned icon header"><div class="content"><a href="/" class="title-link">CHANGSHUN的BLOG</a></div></h3><div class="h50"></div><div class="side-nav"><a href="/" target="_self" class="item">HOME<i class="icon home"></i></a><a href="/categories" target="_self" class="item">CATEGORIES<i class="icon categories"></i></a><a href="/about" target="_self" class="item">ABOUT<i class="icon about"></i></a><a href="/archives" target="_self" class="item">ARCHIVES<i class="icon archives"></i></a><a href="/tags" target="_self" class="item">TAGS<i class="icon tags"></i></a><a href="/atom.xml" target="_self" class="item">RSS<i class="icon rss"></i></a></div><div class="item"><div class="ui inverted transparent icon input"><input type="text" placeholder="Search..." class="st-default-search-input"><i class="search icon"></i></div></div><div class="h50"></div></div><div class="h50 mq"><a class="ui teal big label"><i class="content icon"></i></a></div><div class="author-info"><a href="/" class="img-link"><img src="http://i.imgbox.com/v0MVVgnM.jpeg" class="author-photo ui tiny circular image"></a><h4 class="ui aligned icon header"><div class="content">Changshun</div></h4><p class="author-desc">朝着前端打怪升级中 | 目前从事闪存产品的固件和测试工具开发工作 | 多特蒙德死忠</p><div class="social-outer"><div class="social-inner"><a href="https://github.com/changshun" target="_blank" class="social-link"><i class="icon github"></i></a><a href="https://twitter.com/allenstoneshi" target="_blank" class="social-link"><i class="icon twitter"></i></a><a href="http://weibo.com/fredinweibo" target="_blank" class="social-link"><i class="icon weibo"></i></a></div></div></div></div><div class="main"><div class="wrap"><section class="container"><div class="post"><article class="post-block"><h1 class="post-title">Mac下安装R和Rstudio</h1><div class="post-info"><div class="post-date"><h6 class="ui header"><i class="calendar icon"></i><div class="content">Oct 6, 2015</div></h6></div></div><div class="post-content"><p><section id="table-of-contents" class="toc"><br>  <header><br>    <h3>Overview</h3><br>  </header></section></p>
+<p><div id="drawer" markdown="1"></div></p>
+<ul>
+<li>Auto generated table of contents<br>{:toc}<br><br><!-- /#table-of-contents --></li>
+</ul>
+<blockquote>
+<p>本教程参考：<a href="http://changshun.github.io/tutorial/2015/10/06/Window%E4%B8%8B%E5%AE%89%E8%A3%85R%E5%92%8CRstudio.html" target="_blank" rel="external">Window下安装R和Rstudio</a></p>
+</blockquote>
+<h2 id="1-安装R"><a href="#1-安装R" class="headerlink" title="1.安装R"></a>1.安装R</h2><h3 id="1-1-下载R"><a href="#1-1-下载R" class="headerlink" title="1.1 下载R"></a>1.1 下载R</h3><hr>
+<p>你能够从<a href="http://mirrors.xmu.edu.cn/CRAN/" target="_blank" rel="external">http://mirrors.xmu.edu.cn/CRAN/</a>上下载最新的<code>R</code>.<br><img src="http://i.imgbox.com/CG0TTtSs.png" alt="Path"></p>
+<h3 id="1-2-安装R"><a href="#1-2-安装R" class="headerlink" title="1.2 安装R"></a>1.2 安装R</h3><hr>
+<p><img src="http://i.imgbox.com/Z7H0za0A.png" alt=""></p>
+<p><strong>注意</strong>: 尽量不要安装到中文路径下， 以后使用时可能会有麻烦</p>
+<p><img src="http://i.imgbox.com/xS53DAon.png" alt="bit"></p>
+<p><img src="http://i.imgbox.com/Z7H0za0A.png" alt="成功"></p>
+<h2 id="2-安装RStudio"><a href="#2-安装RStudio" class="headerlink" title="2. 安装RStudio"></a>2. 安装RStudio</h2><hr>
+<h3 id="2-1-下载RStudio"><a href="#2-1-下载RStudio" class="headerlink" title="2.1 下载RStudio"></a>2.1 下载RStudio</h3><hr>
+<p>你能够从<a href="https://www.rstudio.com/" target="_blank" rel="external">RStudio官网</a>上下载最新的<code>RStudio</code>.<br><img src="http://i.imgbox.com/tK6TOXLp.png" alt="Path"></p>
+<h3 id="2-2-安装RStudio"><a href="#2-2-安装RStudio" class="headerlink" title="2.2 安装RStudio"></a>2.2 安装RStudio</h3><hr>
+<p><img src="http://i.imgbox.com/CrbrYKfx.jpg" alt=""></p>
+<p><img src="http://i.imgbox.com/2yJKBFtP.png" alt=""></p>
+<h2 id="3-更新R"><a href="#3-更新R" class="headerlink" title="3. 更新R"></a>3. 更新R</h2><hr>
+<h3 id="3-1-Fool-Way"><a href="#3-1-Fool-Way" class="headerlink" title="3.1 Fool Way"></a>3.1 Fool Way</h3><ol>
+<li>备份你的程序包<br>重新安装R软件时可能会把你已经安装的<code>package</code>覆盖， 为了避免，我们需要先进行备份(将<code>library</code>文件夹复制到他处)。</li>
+</ol>
+<p>程序包位置：<code>/Library/Frameworks/R.framework/Versions/3.2/Resources/library</code></p>
+<p><strong>如何进入路径</strong></p>
+<blockquote>
+<p>打开<code>finder</code>, 使用<code>⌘(command)+⇧（shift）+G</code>, 输入上面路径就可以进入路径<br><img src="http://i.imgbox.com/K68vFhUO.png" alt="path2"></p>
+</blockquote>
+<ol>
+<li>重复<code>1.1</code>和<code>1.2</code></li>
+</ol>
+<h3 id="3-2-The-Harder-Way"><a href="#3-2-The-Harder-Way" class="headerlink" title="3.2 The Harder Way"></a>3.2 The Harder Way</h3><hr>
+<p>Now we set up the global library for R. More details about this is described in [Tal Galili’s blog post][1]. Although you are using the latest version of R, you can still follow my steps. It will help you set a global library for R. This will prevent some troubles in the future.</p>
+<p>Open your R. Run <code>chooseCRANmirror()</code> command line(Type it and hit <code>ENTER</code>) .Choose <code>China(Xiamen)</code>.</p>
+<p><img src="http://i.imgbox.com/nMC12nzx.jpg" alt="mirror" title="Choose Mirror"></p>
+<p>Run the following codes line by line.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">source(&quot;http://www.r-statistics.com/wp-content/uploads/2010/04/upgrading-R-on-windows.r.txt&quot;)</div><div class="line">Old.R.RunMe()</div></pre></td></tr></table></figure></p>
+<p><img src="http://i.imgbox.com/yn5SmnIH.jpg" alt="oldr" title="Set global lib"></p>
+<p>It will ask you whether or not to quit R. Just type <code>n</code> and hit <code>ENTER</code>. Then run <code>New.R.RunMe()</code> just the same way.</p>
+<p>Once you have done these, from now on, whenever you want to update to a new version of R in the future, all you will need to do are the following <strong>TWO</strong> steps:</p>
+<ol>
+<li>Download and install the new version of R</li>
+<li>Open your new R and run the following codes</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">source(&quot;http://www.r-statistics.com/wp-content/uploads/2010/04/upgrading-R-on-windows.r.txt&quot;)</div><div class="line">New.R.RunMe()</div></pre></td></tr></table></figure>
+</div></article></div></section><footer><div class="paginator"><a href="/2015/10/06/技术/2015-10-06-Mathjax/" class="prev"><button class="ui button teal">PREV</button></a><a href="/2015/10/06/技术/rmarkdown/" class="next"><button class="ui button teal">NEXT</button></a></div><div data-thread-key="2015/10/06/技术/2015-10-06-install-R-Mac/" data-title="Mac下安装R和Rstudio" data-url="http://shichangshun.cn/2015/10/06/技术/2015-10-06-install-R-Mac/" class="ds-share"><div class="ds-share-inline"><ul class="ds-share-icons-16"><li data-toggle="ds-share-icons-more"><span class="ds-more">分享到：</span></li><li><a href="javascript:void(0);" data-service="weibo" class="ds-weibo">微博</a></li><li><a href="javascript:void(0);" data-service="qqt" class="ds-qqt">腾讯微博</a></li><li><a href="javascript:void(0);" data-service="wechat" class="ds-wechat">微信</a></li></ul></div></div><div data-thread-key="2015/10/06/技术/2015-10-06-install-R-Mac/" data-title="Mac下安装R和Rstudio" data-url="http://shichangshun.cn/2015/10/06/技术/2015-10-06-install-R-Mac/" data-author-key="1" class="ds-thread"></div><script>var duoshuoQuery = {short_name:"changshun"};
+(function() {
+  var ds = document.createElement('script');
+  ds.type = 'text/javascript';ds.async = true;
+  ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+  ds.charset = 'UTF-8';
+  (document.getElementsByTagName('head')[0] 
+   || document.getElementsByTagName('body')[0]).appendChild(ds);
+})();
 
-block site_title
-  != page.title + " | " + config.title
-
-block description
-  - var desc = page.desc || page.title + ' - ' + config.author;
-  meta(name="description", content=desc)
-
-block container
-  include mixins/post
-  +post(page)
-
-block pagination
-  include mixins/paginator
-  +post()
-  include partial/comment
-
-block copyright
-  include partial/copyright
+</script><div class="copyright"><p>© 2016 <a href="http://shichangshun.cn">Changshun</a>, powered by <a href="https://hexo.io/" target="_blank">Hexo</a> and theme by <a href="https://github.com/littlewin-wang/hexo-theme-casual" target="_blank">casual</a></p></div></footer></div><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script><script src="/js/jquery.scrollex.js"></script><script src="/js/jquery.goup.min.js"></script><script src="/js/semantic.min.js"></script><script src="/js/casual.js"></script><script async src="//cdn.bootcss.com/mathjax/2.6.1/MathJax.js?config=TeX-MML-AM_CHTML"></script><script>$(document).ready(function(){$.goup({trigger:100,bottomOffset:100,locationOffset: 0,title:'',titleAsText:true});});</script><script>(function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){(w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);})(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+_st('install','TvAnFS4AVxjiJUvrZJRB','2.0.0');</script><script>(function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;e=o.createElement(i);r=o.getElementsByTagName(i)[0];e.src='//www.google-analytics.com/analytics.js';r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));ga('create',"UA-65933410-1",'auto');ga('send','pageview');</script></div></body></html>

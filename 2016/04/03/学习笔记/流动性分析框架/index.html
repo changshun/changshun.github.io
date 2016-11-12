@@ -1,20 +1,105 @@
-extends partial/layout
+<!DOCTYPE html><html lang="zh-Hans"><head><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><title> 流动性分析框架 | Changshun的Blog</title><meta name="description" content="流动性分析框架 - Changshun"><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="short icon" href="/favicon.png"><link rel="stylesheet" href="/css/casual.css"><link rel="stylesheet" href="/css/semantic.min.css"><link rel="search" type="application/opensearchdescription+xml" href="http://shichangshun.cn/atom.xml" title="Changshun的Blog"></head><body><div class="sidebar"><div class="ui vertical inverted menu"><div class="h100"></div><h3 class="ui inverted aligned icon header"><div class="content"><a href="/" class="title-link">CHANGSHUN的BLOG</a></div></h3><div class="h50"></div><div class="side-nav"><a href="/" target="_self" class="item">HOME<i class="icon home"></i></a><a href="/categories" target="_self" class="item">CATEGORIES<i class="icon categories"></i></a><a href="/about" target="_self" class="item">ABOUT<i class="icon about"></i></a><a href="/archives" target="_self" class="item">ARCHIVES<i class="icon archives"></i></a><a href="/tags" target="_self" class="item">TAGS<i class="icon tags"></i></a><a href="/atom.xml" target="_self" class="item">RSS<i class="icon rss"></i></a></div><div class="item"><div class="ui inverted transparent icon input"><input type="text" placeholder="Search..." class="st-default-search-input"><i class="search icon"></i></div></div><div class="h50"></div></div><div class="h50 mq"><a class="ui teal big label"><i class="content icon"></i></a></div><div class="author-info"><a href="/" class="img-link"><img src="http://i.imgbox.com/v0MVVgnM.jpeg" class="author-photo ui tiny circular image"></a><h4 class="ui aligned icon header"><div class="content">Changshun</div></h4><p class="author-desc">朝着前端打怪升级中 | 目前从事闪存产品的固件和测试工具开发工作 | 多特蒙德死忠</p><div class="social-outer"><div class="social-inner"><a href="https://github.com/changshun" target="_blank" class="social-link"><i class="icon github"></i></a><a href="https://twitter.com/allenstoneshi" target="_blank" class="social-link"><i class="icon twitter"></i></a><a href="http://weibo.com/fredinweibo" target="_blank" class="social-link"><i class="icon weibo"></i></a></div></div></div></div><div class="main"><div class="wrap"><section class="container"><div class="post"><article class="post-block"><h1 class="post-title">流动性分析框架</h1><div class="post-info"><div class="post-date"><h6 class="ui header"><i class="calendar icon"></i><div class="content">Apr 3, 2016</div></h6></div></div><div class="post-content"><h1 id="流动性分析框架"><a href="#流动性分析框架" class="headerlink" title="流动性分析框架"></a>流动性分析框架</h1><h2 id="1-高频率流动性指标检测"><a href="#1-高频率流动性指标检测" class="headerlink" title="1. 高频率流动性指标检测"></a>1. 高频率流动性指标检测</h2><ul>
+<li><strong>1天及7天回购利率利差：</strong>  利差大小/货币市场的期限利差反映预期及供需</li>
+<li><strong>回购开盘利率变动、3M Shibor报价</strong></li>
+<li><strong>回购与拆借占比</strong> </li>
+<li><strong>不同期限成交量占比：</strong> 隔夜/7天占比的变动， 不同时点对不同期限资金需求不一样（跨季、跨节）</li>
+<li><strong>待回购余额：</strong> 衡量整体杠杆资金与杠杆的大小 </li>
+<li><strong>银行间货币市场净融资额：</strong> 不同机构融出/融入的情况，与超储有关，周度的拆出还受缴准、缴税等影响</li>
+</ul>
+<p>总体而言，量价关系反映资金的供需以及市场对资金面的预期。一般预期宽松且资金利率较低时，市场倾向 于借短资金，如15年7-8月，隔夜占比明显上升；当预期偏紧时，一般倾向于锁定风险以及资金成本，借长 期限的资金，如13年6月的钱荒。观察日内价格走势以及成交概况，尤其是交易所，资金松的时候尾盘掉的 厉害，紧的时候尾盘飙升。</p>
+<h2 id="2-事件的影响"><a href="#2-事件的影响" class="headerlink" title="2. 事件的影响"></a>2. 事件的影响</h2><ul>
+<li><strong>流动性危机/冲击事件</strong> ：股灾/金融危机等传导过程中的流动性危机、非标投资、IPO、汇率、交易所动向</li>
+<li><strong>机构行为：</strong>加杠杆/季末的资金面变动特征</li>
+</ul>
+<h2 id="3-狭义的流动性"><a href="#3-狭义的流动性" class="headerlink" title="3. 狭义的流动性"></a>3. 狭义的流动性</h2><p><strong>狭义流动性</strong>主要指<em>银行间市场短期资金拆放的流动性</em>，典型的影响指标是银行超储率。超储率的高低影响着 银行对资金供给的多寡，从供给层面影响货币市场利率，其他金融机构则从资金融入的层面影响需求。</p>
+<ul>
+<li><strong>分析框架：</strong>五因素模型（<strong>外汇占款、财政存款、现金、央行公开市场操作、法定存款准备金率</strong>）</li>
+</ul>
+<h2 id="4-广义流动性观察"><a href="#4-广义流动性观察" class="headerlink" title="4. 广义流动性观察"></a>4. 广义流动性观察</h2><p>狭义流动性影响货币市场利率和短期利率，而广义流动性对中长期利率和其他层次的利率有着更明显的影 响，衡量广义流动性主要是货币增速和社会融资总量。但狭义流动性对广义流动性也有着较明显的影响。 狭义流动性的松紧制约广义流动性的松紧。</p>
+<ul>
+<li><strong>影响因素：超储率、基础货币、货币乘数、融资需求、监管政策、货币政策</strong></li>
+</ul>
+<p><img src="http://i.imgbox.com/FOLUCqG2.png" alt="frame"></p>
+<h1 id="流动性观察"><a href="#流动性观察" class="headerlink" title="流动性观察"></a>流动性观察</h1><h2 id="回购市场较拆借市场更为活跃更反映资金面"><a href="#回购市场较拆借市场更为活跃更反映资金面" class="headerlink" title="回购市场较拆借市场更为活跃更反映资金面"></a>回购市场较拆借市场更为活跃更反映资金面</h2><p>2001年以来， 债券回购市场成交金额一直占比在75%以上。其中， 质押式和买断式的比例大概为9：1。</p>
+<p>回购市场较大的原因是， 拆借市场需要占用授信额度， 且拆借利率也相对高于回购利率</p>
+<p>回购品种中1天和7天的成交量最大，分别占70%-80%和10%-20%，而1个 月以上的成交并不活跃。 由于银行是最大的资金融 出方，融出资金比例占 70%-80%甚至更高，所 以回购利率能够充分反映 银行机构的流动性状况。</p>
+<h2 id="量价关系、期限占比"><a href="#量价关系、期限占比" class="headerlink" title="量价关系、期限占比"></a>量价关系、期限占比</h2><ul>
+<li>1天及 7天回购利率利 差与 不同期限成交量占比从价、 量两个维度反映 资金的供 需以及对资金面的预期。</li>
+</ul>
+<p><img src="http://i.imgbox.com/0abxAg2R.png" alt="量价关系"></p>
+<ul>
+<li>一般预期宽松且资金利率较低时，市场倾向于借短资金/隔夜 ， 如15年 4-6 月 ， 资金宽松，资金在隔夜市场淤积，隔夜利率明显下行带动7天和1天利差扩大。 而当预期偏紧时，一般倾 向于锁定风险以及资金成本， 借长期限的资金， 如13年6月的钱荒。</li>
+</ul>
+<h2 id="待回购余额规模及期限结构"><a href="#待回购余额规模及期限结构" class="headerlink" title="待回购余额规模及期限结构"></a>待回购余额规模及期限结构</h2><p>未到期回购余额也是观察 资金需求边际变化的一个 很好的指标。</p>
+<p><img src="http://i.imgbox.com/gnWCO6ty.png" alt="银行间及交易所回购余额"></p>
+<ol>
+<li><p>打新带来的波动：未到期回购余额的正弦波峰与前期新股资金冻结的高峰完全重合<br><img src="http://i.imgbox.com/jclp3Bxj.png" alt=""></p>
+</li>
+<li><p>节假日前后 （ 比如春 节和国庆假期），借入长期 限资金需求上升，推动未到 期回购余额上升。</p>
+</li>
+<li>杠杆融资需求上升,2015 年 7 月份以来交易所回 购余额显著增加，表明交易 所债券杠杆上升，投资者通 过放杠杆提高收益。</li>
+</ol>
+<h1 id="狭义流动性分析框架"><a href="#狭义流动性分析框架" class="headerlink" title="狭义流动性分析框架"></a>狭义流动性分析框架</h1><h2 id="超储率和无因素模型"><a href="#超储率和无因素模型" class="headerlink" title="超储率和无因素模型"></a>超储率和无因素模型</h2><p>影响资金面的因素有很多，但从银行间市场资金供给的角度，最本质的因素是银行超储率的高低。 尤其是在目前的市场结构中，银行是债市最大的投资者也是最主要的资金供给方。</p>
+<p>$$\Delta 超额准备金 = \Delta （外汇占款 + 公开市场净投放 - \Delta(财政存款－流通中的现金－法定准备金) $$</p>
+<p>影响超储率主要有五个因素：<strong>财政存款变动、外汇占款、流通中现金M0、公开市场操作和法定存 准备金。</strong></p>
+<p><img src="http://i.imgbox.com/09jyrPR0.png" alt="ea"></p>
+<h3 id="1-外汇占款（-）"><a href="#1-外汇占款（-）" class="headerlink" title="1. 外汇占款（+）"></a>1. 外汇占款（+）</h3><blockquote>
+<p>外汇占款<br><img src="http://i.imgbox.com/GXDWTAi7.png" alt=""></p>
+</blockquote>
+<p>外汇占款提供 基础 货币与流动性 ， 与 贸易顺差状况 、 人民币升值 预期以及 热钱等 因素相关，波动性较大。</p>
+<p>外汇占款的增加会增加资金供给， 增加超额准备金。过去十年货币高增长的贡献来自于外汇占</p>
+<p>广义货币M2的增长受两个因素的推动：<strong>基础货币</strong>和 <strong>货币乘数</strong> 。 过去十年 M2 能够保持较快的 增长速度 ( 平均 在 17%-18%) ， 其中主要的推动力来自于基础货币的增长。而基础货币增长较快的背后是外 汇占款的持续快速增长。央行为保证整体的 广义货币供应量在一个相 对适度的水平，连续上调 法定存款准备金率，从而 在基础货币扩张的同时降 低货币乘数， 避免货币供 应量的激增。12年以来，我国外汇占款 流入有所放缓，尤其是14年以来，也打开了降准周期。</p>
+<ul>
+<li>外汇占款的绝对增量 / 增速 ，高峰都已过去<br><img src="http://i.imgbox.com/iUjrTXQ8.png" alt=""></li>
+<li>。汇改之后外 汇市场变动对流动性影响更 频繁更复杂，需关注汇率走 势、成交及货币当局的操作。</li>
+</ul>
+<h3 id="2-公开市场净投放（-）"><a href="#2-公开市场净投放（-）" class="headerlink" title="2. 公开市场净投放（+）"></a>2. 公开市场净投放（+）</h3><p>公开市场操作和法定存款准备金规模是央行的核心工具， 不同阶段对两种工具的倚重不同。 </p>
+<p><strong>公开市场操作的传统工具：</strong></p>
+<ul>
+<li><p>【央票】从2002年开始，为对冲外汇占款的增加，央票发行规模持续增长，回收流动 性。2008年达到高峰42960亿元，而后随着外汇占款单边趋势的改变，央票发行规模 逐渐减少，2012年暂停发行，2013年重启发行5000多亿，之后一直停发</p>
+</li>
+<li><p>【国库金定存】是将存放在央行的财政存款通过招标方式转存至商业银行，期限一 般在3至9个月，具有投放短期基础货币的作用。2006年底，国库现金定存第一次发行 ，2009、2012和2014年发行规模出现较大增长。未来盘活地方财政存款。</p>
+</li>
+<li><p>【正逆回购】】逆回购释放流动性，正回购回收流动性。<br><img src="http://i.imgbox.com/sAQHJOWR.png" alt=""></p>
+</li>
+</ul>
+<p><strong>从对流动性影响（锁定/投 放）的期限来看：</strong></p>
+<p><strong>上调准备金率调整＜发行 央票＜正回购 ＜ ＜ 逆回 购＜ SLO ＜ SLF ＜国库 现金招标＜ MLF ＜下调 准备金率（定向降准）。</strong></p>
+<h3 id="3-财政存款（-）"><a href="#3-财政存款（-）" class="headerlink" title="3. 财政存款（-）"></a>3. 财政存款（-）</h3><p>财政存款反映在央行资产 负债表的负债方，是中央 和地方政府存放在央行的 存款。财政存款减少对应 基础货币的投放，财政存 款增加对应基础货币的收 缩。<br>财政存款的变动具有很强 的季节性：一般季度初财 政存款都会增加，季度末 财政存款都会减少，年末 集中投放。 </p>
+<ul>
+<li>季度初预缴企业所得税：1、4、7、10月，上缴导致财政存款上升，收紧流动性；</li>
+<li>季度末投放：3、6、9、12 月财政投放，投放提供流动性。</li>
+</ul>
+<p><img src="http://i.imgbox.com/32HdPsdl.png" alt="财政存款"></p>
+<h3 id="4-流动中现金（-）"><a href="#4-流动中现金（-）" class="headerlink" title="4. 流动中现金（-）"></a>4. 流动中现金（-）</h3><p>一般主要考察M0。<br>流通中现金M0的增加本质上需要消耗银行的超储率（用超储换现金）。<br>一般大的节假日居民取现需求较大（尤其是春节），M0增加收紧流动性，春节后回流 。</p>
+<h3 id="5-法定准备金率"><a href="#5-法定准备金率" class="headerlink" title="5. 法定准备金率"></a>5. 法定准备金率</h3><p>法定准备金率传统上被认为是强力的货币政策， 通过改变货币乘数来影响金 融体系的资金供需关系。 既是数量调控工具，又是价格调控工具。</p>
+<ul>
+<li>每个月的 5 、 15 、 25 日上 缴/退缴分别截至上个月末、 10、20日的存款准备金变 动的部分，带来资金面当 期的小幅波动。</li>
+</ul>
+<h3 id="6-结构性因素影响"><a href="#6-结构性因素影响" class="headerlink" title="6. 结构性因素影响"></a>6. 结构性因素影响</h3><p>事件的影响和冲击：<br>11年的城投债， 13年的“钱荒”， 15年上半年的大新需求火爆。</p>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+</script>
 
-block site_title
-  != page.title + " | " + config.title
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
 
-block description
-  - var desc = page.desc || page.title + ' - ' + config.author;
-  meta(name="description", content=desc)
 
-block container
-  include mixins/post
-  +post(page)
 
-block pagination
-  include mixins/paginator
-  +post()
-  include partial/comment
+</div></article></div></section><footer><div class="paginator"><a href="/2016/04/19/债券发行与承销笔记/" class="prev"><button class="ui button teal">PREV</button></a><a href="/2016/03/29/技术/2016-03-29-terminal/" class="next"><button class="ui button teal">NEXT</button></a></div><div data-thread-key="2016/04/03/学习笔记/流动性分析框架/" data-title="流动性分析框架" data-url="http://shichangshun.cn/2016/04/03/学习笔记/流动性分析框架/" class="ds-share"><div class="ds-share-inline"><ul class="ds-share-icons-16"><li data-toggle="ds-share-icons-more"><span class="ds-more">分享到：</span></li><li><a href="javascript:void(0);" data-service="weibo" class="ds-weibo">微博</a></li><li><a href="javascript:void(0);" data-service="qqt" class="ds-qqt">腾讯微博</a></li><li><a href="javascript:void(0);" data-service="wechat" class="ds-wechat">微信</a></li></ul></div></div><div data-thread-key="2016/04/03/学习笔记/流动性分析框架/" data-title="流动性分析框架" data-url="http://shichangshun.cn/2016/04/03/学习笔记/流动性分析框架/" data-author-key="1" class="ds-thread"></div><script>var duoshuoQuery = {short_name:"changshun"};
+(function() {
+  var ds = document.createElement('script');
+  ds.type = 'text/javascript';ds.async = true;
+  ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+  ds.charset = 'UTF-8';
+  (document.getElementsByTagName('head')[0] 
+   || document.getElementsByTagName('body')[0]).appendChild(ds);
+})();
 
-block copyright
-  include partial/copyright
+</script><div class="copyright"><p>© 2016 <a href="http://shichangshun.cn">Changshun</a>, powered by <a href="https://hexo.io/" target="_blank">Hexo</a> and theme by <a href="https://github.com/littlewin-wang/hexo-theme-casual" target="_blank">casual</a></p></div></footer></div><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script><script src="/js/jquery.scrollex.js"></script><script src="/js/jquery.goup.min.js"></script><script src="/js/semantic.min.js"></script><script src="/js/casual.js"></script><script async src="//cdn.bootcss.com/mathjax/2.6.1/MathJax.js?config=TeX-MML-AM_CHTML"></script><script>$(document).ready(function(){$.goup({trigger:100,bottomOffset:100,locationOffset: 0,title:'',titleAsText:true});});</script><script>(function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){(w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);})(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+_st('install','TvAnFS4AVxjiJUvrZJRB','2.0.0');</script><script>(function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;e=o.createElement(i);r=o.getElementsByTagName(i)[0];e.src='//www.google-analytics.com/analytics.js';r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));ga('create',"UA-65933410-1",'auto');ga('send','pageview');</script></div></body></html>

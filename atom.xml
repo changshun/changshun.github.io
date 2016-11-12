@@ -1,12 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
-<search>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Changshun的Blog</title>
   
+  <link href="/atom.xml" rel="self"/>
   
+  <link href="http://shichangshun.cn/"/>
+  <updated>2016-11-08T10:31:58.000Z</updated>
+  <id>http://shichangshun.cn/</id>
+  
+  <author>
+    <name>Changshun</name>
     
-    <entry>
-      <title><![CDATA[货币政策及货币政策工具]]></title>
-      <url>http://shichangshun.cn/2016/11/08/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E8%B4%A7%E5%B8%81%E6%94%BF%E7%AD%96%E5%8F%8A%E8%B4%A7%E5%B8%81%E6%94%BF%E7%AD%96%E5%B7%A5%E5%85%B7/</url>
-      <content type="html"><![CDATA[<blockquote>
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>货币政策及货币政策工具</title>
+    <link href="http://shichangshun.cn/2016/11/08/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E8%B4%A7%E5%B8%81%E6%94%BF%E7%AD%96%E5%8F%8A%E8%B4%A7%E5%B8%81%E6%94%BF%E7%AD%96%E5%B7%A5%E5%85%B7/"/>
+    <id>http://shichangshun.cn/2016/11/08/学习笔记/货币政策及货币政策工具/</id>
+    <published>2016-11-08T08:30:30.000Z</published>
+    <updated>2016-11-08T10:31:58.000Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote>
 <p>该博文是中金公司《十年经典系列专题:债市宝典之宏观利率篇》的阅读笔记</p>
 </blockquote>
 <h2 id="货币政策传导路径"><a href="#货币政策传导路径" class="headerlink" title="货币政策传导路径"></a>货币政策传导路径</h2><p>传导机制的路径是： <strong>货币政策工具 –&gt; 中介目标 –&gt; 金融市场 –&gt; 最终目标</strong></p>
@@ -73,21 +89,60 @@
 
 
 ]]></content>
-    </entry>
     
-    <entry>
-      <title><![CDATA[Stackoverflow 几种编程语言问题数趋势]]></title>
-      <url>http://shichangshun.cn/2016/09/29/stackoverflow/</url>
-      <content type="html"><![CDATA[<p>数据来源： <a href="https://data.stackexchange.com/stackoverflow/csv/440417" target="_blank" rel="external">https://data.stackexchange.com/stackoverflow/csv/440417</a></p>
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;该博文是中金公司《十年经典系列专题:债市宝典之宏观利率篇》的阅读笔记&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&quot;货币政策传导路径&quot;&gt;&lt;a href=&quot;#货币政策传导路径&quot; class=&quot;headerlink&quot; title=&quot;货币政策传导路
+    
+    </summary>
+    
+      <category term="学习笔记" scheme="http://shichangshun.cn/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    
+    
+      <category term="债券" scheme="http://shichangshun.cn/tags/%E5%80%BA%E5%88%B8/"/>
+    
+      <category term="中金" scheme="http://shichangshun.cn/tags/%E4%B8%AD%E9%87%91/"/>
+    
+      <category term="Economics" scheme="http://shichangshun.cn/tags/Economics/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Stackoverflow 几种编程语言问题数趋势</title>
+    <link href="http://shichangshun.cn/2016/09/29/stackoverflow/"/>
+    <id>http://shichangshun.cn/2016/09/29/stackoverflow/</id>
+    <published>2016-09-29T02:15:30.000Z</published>
+    <updated>2016-09-29T02:12:29.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>数据来源： <a href="https://data.stackexchange.com/stackoverflow/csv/440417" target="_blank" rel="external">https://data.stackexchange.com/stackoverflow/csv/440417</a></p>
 <figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">library</span>(data.table)</div><div class="line"><span class="keyword">library</span>(stringr)</div><div class="line"><span class="keyword">library</span>(ggplot2)</div><div class="line"><span class="keyword">library</span>(grid)</div><div class="line"><span class="keyword">library</span>(directlabels)</div><div class="line">stackoverflow &lt;- fread(<span class="string">"https://data.stackexchange.com/stackoverflow/csv/440417"</span>)</div><div class="line">stackoverflow[,`:=`(Month=as.Date(str_extract(Month, <span class="string">"\\d&#123;4&#125;-\\d&#123;2&#125;-\\d&#123;2&#125;"</span>)),</div><div class="line">                Questions = as.numeric(Questions))]</div><div class="line">p =  ggplot(stackoverflow)+</div><div class="line">  geom_line(aes(x = Month, y = Questions, colour = TagName),size = <span class="number">1.2</span>)+ </div><div class="line">  geom_point(size = <span class="number">0.5</span>,aes(x = Month, y = Questions,colour = TagName))+</div><div class="line">  ggthemes::scale_colour_gdocs()+</div><div class="line">  ggthemes::theme_wsj()+</div><div class="line">  scale_y_continuous(breaks = seq(<span class="number">0</span>, <span class="number">30000</span>, <span class="number">3000</span>))+</div><div class="line">  geom_dl(aes(x = Month, y = Questions,label = TagName, colour = TagName), method = list(<span class="string">"last.qp"</span>))+</div><div class="line">  ggtitle(<span class="string">"Questions Stackoverflow (Monthly) "</span>)</div><div class="line">p</div></pre></td></tr></table></figure>
 <p><img src="/img/stackoverflow.png" alt=""></p>
 ]]></content>
-    </entry>
     
-    <entry>
-      <title><![CDATA[科学计算之 `pandas`]]></title>
-      <url>http://shichangshun.cn/2016/09/28/%E6%8A%80%E6%9C%AF/Pandas+Note/</url>
-      <content type="html"><![CDATA[<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">%matplotlib inline</div><div class="line">%pylab inline</div></pre></td></tr></table></figure>
+    <summary type="html">
+    
+      &lt;p&gt;数据来源： &lt;a href=&quot;https://data.stackexchange.com/stackoverflow/csv/440417&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://data.stackexchange.com/sta
+    
+    </summary>
+    
+      <category term="可视化" scheme="http://shichangshun.cn/categories/%E5%8F%AF%E8%A7%86%E5%8C%96/"/>
+    
+    
+      <category term="Stackoverflow" scheme="http://shichangshun.cn/tags/Stackoverflow/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>科学计算之 `pandas`</title>
+    <link href="http://shichangshun.cn/2016/09/28/%E6%8A%80%E6%9C%AF/Pandas+Note/"/>
+    <id>http://shichangshun.cn/2016/09/28/技术/Pandas+Note/</id>
+    <published>2016-09-28T08:15:30.000Z</published>
+    <updated>2016-09-28T09:08:55.000Z</updated>
+    
+    <content type="html"><![CDATA[<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">%matplotlib inline</div><div class="line">%pylab inline</div></pre></td></tr></table></figure>
 <pre><code>Populating the interactive namespace from numpy and matplotlib
 </code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">from</span> pandas <span class="keyword">import</span> Series, DataFrame</div><div class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</div><div class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</div><div class="line"><span class="keyword">from</span> numpy <span class="keyword">import</span> random</div></pre></td></tr></table></figure>
 <h2 id="pandas数据结构"><a href="#pandas数据结构" class="headerlink" title="pandas数据结构"></a><code>pandas</code>数据结构</h2><h3 id="Series"><a href="#Series" class="headerlink" title="Series"></a><code>Series</code></h3><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">obj = Series(np.arange(<span class="number">1</span>,<span class="number">11</span>))</div><div class="line">obj</div></pre></td></tr></table></figure>
@@ -1134,12 +1189,28 @@ dtype: float64
 <div><br><table border="1" class="dataframe"><br>  <thead><br>    <tr style="text-align: right;"><br>      <th></th><br>      <th>Year</th><br>      <th>Income</th><br>    </tr><br>  </thead><br>  <tbody><br>    <tr><br>      <th>0</th><br>      <td>1800</td><br>      <td>553.72</td><br>    </tr><br>    <tr><br>      <th>1</th><br>      <td>1820</td><br>      <td>553.72</td><br>    </tr><br>    <tr><br>      <th>2</th><br>      <td>1913</td><br>      <td>855.53</td><br>    </tr><br>    <tr><br>      <th>3</th><br>      <td>1950</td><br>      <td>1104.47</td><br>    </tr><br>    <tr><br>      <th>4</th><br>      <td>1951</td><br>      <td>1083.57</td><br>    </tr><br>    <tr><br>      <th>5</th><br>      <td>1952</td><br>      <td>1062.75</td><br>    </tr><br>    <tr><br>      <th>6</th><br>      <td>1953</td><br>      <td>1012.84</td><br>    </tr><br>    <tr><br>      <th>7</th><br>      <td>1954</td><br>      <td>1021.29</td><br>    </tr><br>    <tr><br>      <th>8</th><br>      <td>1955</td><br>      <td>1000.66</td><br>    </tr><br>    <tr><br>      <th>9</th><br>      <td>1956</td><br>      <td>980.06</td><br>    </tr><br>    <tr><br>      <th>10</th><br>      <td>1957</td><br>      <td>959.60</td><br>    </tr><br>    <tr><br>      <th>11</th><br>      <td>1958</td><br>      <td>974.04</td><br>    </tr><br>    <tr><br>      <th>12</th><br>      <td>1959</td><br>      <td>988.88</td><br>    </tr><br>    <tr><br>      <th>13</th><br>      <td>1960</td><br>      <td>996.93</td><br>    </tr><br>    <tr><br>      <th>14</th><br>      <td>1961</td><br>      <td>1006.39</td><br>    </tr><br>    <tr><br>      <th>15</th><br>      <td>1962</td><br>      <td>949.50</td><br>    </tr><br>    <tr><br>      <th>16</th><br>      <td>1963</td><br>      <td>970.34</td><br>    </tr><br>    <tr><br>      <th>17</th><br>      <td>1964</td><br>      <td>1012.25</td><br>    </tr><br>    <tr><br>      <th>18</th><br>      <td>1965</td><br>      <td>1039.34</td><br>    </tr><br>    <tr><br>      <th>19</th><br>      <td>1966</td><br>      <td>1051.67</td><br>    </tr><br>    <tr><br>      <th>20</th><br>      <td>1967</td><br>      <td>1035.83</td><br>    </tr><br>    <tr><br>      <th>21</th><br>      <td>1968</td><br>      <td>1048.78</td><br>    </tr><br>    <tr><br>      <th>22</th><br>      <td>1969</td><br>      <td>1052.80</td><br>    </tr><br>    <tr><br>      <th>23</th><br>      <td>1970</td><br>      <td>1047.17</td><br>    </tr><br>    <tr><br>      <th>24</th><br>      <td>1971</td><br>      <td>1024.93</td><br>    </tr><br>    <tr><br>      <th>25</th><br>      <td>1972</td><br>      <td>1085.80</td><br>    </tr><br>    <tr><br>      <th>26</th><br>      <td>1973</td><br>      <td>1081.87</td><br>    </tr><br>    <tr><br>      <th>27</th><br>      <td>1974</td><br>      <td>973.64</td><br>    </tr><br>    <tr><br>      <th>28</th><br>      <td>1975</td><br>      <td>987.96</td><br>    </tr><br>    <tr><br>      <th>29</th><br>      <td>1976</td><br>      <td>1002.19</td><br>    </tr><br>    <tr><br>      <th>…</th><br>      <td>…</td><br>      <td>…</td><br>    </tr><br>    <tr><br>      <th>33</th><br>      <td>1980</td><br>      <td>1154.23</td><br>    </tr><br>    <tr><br>      <th>34</th><br>      <td>1981</td><br>      <td>1186.70</td><br>    </tr><br>    <tr><br>      <th>35</th><br>      <td>1982</td><br>      <td>1277.90</td><br>    </tr><br>    <tr><br>      <th>36</th><br>      <td>1983</td><br>      <td>1187.14</td><br>    </tr><br>    <tr><br>      <th>37</th><br>      <td>1984</td><br>      <td>1243.82</td><br>    </tr><br>    <tr><br>      <th>38</th><br>      <td>1985</td><br>      <td>1297.16</td><br>    </tr><br>    <tr><br>      <th>39</th><br>      <td>1986</td><br>      <td>1285.08</td><br>    </tr><br>    <tr><br>      <th>40</th><br>      <td>1987</td><br>      <td>1225.86</td><br>    </tr><br>    <tr><br>      <th>41</th><br>      <td>1988</td><br>      <td>1222.90</td><br>    </tr><br>    <tr><br>      <th>42</th><br>      <td>1989</td><br>      <td>1158.34</td><br>    </tr><br>    <tr><br>      <th>43</th><br>      <td>1990</td><br>      <td>1165.47</td><br>    </tr><br>    <tr><br>      <th>44</th><br>      <td>1991</td><br>      <td>1181.65</td><br>    </tr><br>    <tr><br>      <th>45</th><br>      <td>1992</td><br>      <td>1191.21</td><br>    </tr><br>    <tr><br>      <th>46</th><br>      <td>1993</td><br>      <td>1177.91</td><br>    </tr><br>    <tr><br>      <th>47</th><br>      <td>1994</td><br>      <td>1168.53</td><br>    </tr><br>    <tr><br>      <th>48</th><br>      <td>1995</td><br>      <td>1176.67</td><br>    </tr><br>    <tr><br>      <th>49</th><br>      <td>1996</td><br>      <td>1202.15</td><br>    </tr><br>    <tr><br>      <th>50</th><br>      <td>1997</td><br>      <td>1232.98</td><br>    </tr><br>    <tr><br>      <th>51</th><br>      <td>1998</td><br>      <td>1251.88</td><br>    </tr><br>    <tr><br>      <th>52</th><br>      <td>1999</td><br>      <td>1272.80</td><br>    </tr><br>    <tr><br>      <th>53</th><br>      <td>2000</td><br>      <td>1307.57</td><br>    </tr><br>    <tr><br>      <th>54</th><br>      <td>2001</td><br>      <td>1333.30</td><br>    </tr><br>    <tr><br>      <th>55</th><br>      <td>2002</td><br>      <td>1372.88</td><br>    </tr><br>    <tr><br>      <th>56</th><br>      <td>2003</td><br>      <td>1386.05</td><br>    </tr><br>    <tr><br>      <th>57</th><br>      <td>2004</td><br>      <td>1389.13</td><br>    </tr><br>    <tr><br>      <th>58</th><br>      <td>2005</td><br>      <td>1390.00</td><br>    </tr><br>    <tr><br>      <th>59</th><br>      <td>2006</td><br>      <td>1402.94</td><br>    </tr><br>    <tr><br>      <th>60</th><br>      <td>2007</td><br>      <td>1428.15</td><br>    </tr><br>    <tr><br>      <th>61</th><br>      <td>2008</td><br>      <td>1459.07</td><br>    </tr><br>    <tr><br>      <th>62</th><br>      <td>2009</td><br>      <td>1457.57</td><br>    </tr><br>  </tbody><br></table><br><p>63 rows × 2 columns</p><br></div>
 
 ]]></content>
-    </entry>
     
-    <entry>
-      <title><![CDATA[科学计算之 `scipy`]]></title>
-      <url>http://shichangshun.cn/2016/09/27/scipy/</url>
-      <content type="html"><![CDATA[<h2 id="一、Scipy概述"><a href="#一、Scipy概述" class="headerlink" title="一、Scipy概述"></a>一、<code>Scipy</code>概述</h2><p><code>SciPy</code>基于<code>NumPy</code>提供了更为丰富和高级的功能扩展，在统计、优化、插值、数值积分、时频转换等方面提供了大量的可用函数，基本覆盖了基础科学计算相关的问题。</p>
+    <summary type="html">
+    
+      &lt;figure class=&quot;highlight python&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;
+    
+    </summary>
+    
+      <category term="技术" scheme="http://shichangshun.cn/categories/%E6%8A%80%E6%9C%AF/"/>
+    
+    
+      <category term="Python" scheme="http://shichangshun.cn/tags/Python/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>科学计算之 `scipy`</title>
+    <link href="http://shichangshun.cn/2016/09/27/scipy/"/>
+    <id>http://shichangshun.cn/2016/09/27/scipy/</id>
+    <published>2016-09-27T08:15:30.000Z</published>
+    <updated>2016-09-27T08:14:16.000Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="一、Scipy概述"><a href="#一、Scipy概述" class="headerlink" title="一、Scipy概述"></a>一、<code>Scipy</code>概述</h2><p><code>SciPy</code>基于<code>NumPy</code>提供了更为丰富和高级的功能扩展，在统计、优化、插值、数值积分、时频转换等方面提供了大量的可用函数，基本覆盖了基础科学计算相关的问题。</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</div><div class="line"><span class="keyword">import</span> scipy.stats <span class="keyword">as</span> stats</div><div class="line"><span class="keyword">import</span> scipy.optimize <span class="keyword">as</span> opt</div></pre></td></tr></table></figure>
 <h2 id="二、统计部分"><a href="#二、统计部分" class="headerlink" title="二、统计部分"></a>二、统计部分</h2><h3 id="2-1-生成随机数"><a href="#2-1-生成随机数" class="headerlink" title="2.1 生成随机数"></a>2.1 生成随机数</h3><ul>
 <li><code>rv_continuous.rvs(size=n)</code>: 其中<code>rv_continuous</code>表示连续型的随机分布，如均匀分布（<code>uniform</code>）、正态分布（<code>norm</code>）、贝塔分布（<code>beta</code>）等 </li>
@@ -1262,12 +1333,28 @@ R-squared: 0.770651967105
  success: True
        x: array([ 1.,  1.,  1.,  1.,  1.])
 </code></pre>]]></content>
-    </entry>
     
-    <entry>
-      <title></title>
-      <url>http://shichangshun.cn/2016/09/20/highcharter/</url>
-      <content type="html"><![CDATA[<!DOCTYPE html>
+    <summary type="html">
+    
+      &lt;h2 id=&quot;一、Scipy概述&quot;&gt;&lt;a href=&quot;#一、Scipy概述&quot; class=&quot;headerlink&quot; title=&quot;一、Scipy概述&quot;&gt;&lt;/a&gt;一、&lt;code&gt;Scipy&lt;/code&gt;概述&lt;/h2&gt;&lt;p&gt;&lt;code&gt;SciPy&lt;/code&gt;基于&lt;code&gt;Num
+    
+    </summary>
+    
+      <category term="技术" scheme="http://shichangshun.cn/categories/%E6%8A%80%E6%9C%AF/"/>
+    
+    
+      <category term="Python" scheme="http://shichangshun.cn/tags/Python/"/>
+    
+  </entry>
+  
+  <entry>
+    <title></title>
+    <link href="http://shichangshun.cn/2016/09/20/highcharter/"/>
+    <id>http://shichangshun.cn/2016/09/20/highcharter/</id>
+    <published>2016-09-20T12:16:43.000Z</published>
+    <updated>2016-09-29T06:21:03.000Z</updated>
+    
+    <content type="html"><![CDATA[<!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 
@@ -1456,12 +1543,31 @@ $(document).ready(function () {
 </body>
 </html>
 ]]></content>
-    </entry>
     
-    <entry>
-      <title></title>
-      <url>http://shichangshun.cn/2016/09/20/Linux/</url>
-      <content type="html"><![CDATA[<!DOCTYPE html>
+    <summary type="html">
+    
+      &lt;!DOCTYPE html&gt;
+
+&lt;html xmlns=&quot;http://www.w3.org/1999/xhtml&quot;&gt;
+
+&lt;head&gt;
+
+&lt;meta charset=&quot;utf-8&quot;&gt;
+&lt;meta http-equiv=&quot;Content-Type&quot; content=&quot;text/h
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title></title>
+    <link href="http://shichangshun.cn/2016/09/20/Linux/"/>
+    <id>http://shichangshun.cn/2016/09/20/Linux/</id>
+    <published>2016-09-20T00:43:53.000Z</published>
+    <updated>2016-09-20T01:01:20.000Z</updated>
+    
+    <content type="html"><![CDATA[<!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 
@@ -1663,12 +1769,31 @@ $(document).ready(function () {
 </body>
 </html>
 ]]></content>
-    </entry>
     
-    <entry>
-      <title><![CDATA[High Performance Data Manipulation(Ken Ren)]]></title>
-      <url>http://shichangshun.cn/2016/09/19/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/HignPerformance/</url>
-      <content type="html"><![CDATA[<h2 id="When-performance-matters"><a href="#When-performance-matters" class="headerlink" title="When performance matters?"></a>When performance matters?</h2><ul>
+    <summary type="html">
+    
+      &lt;!DOCTYPE html&gt;
+
+&lt;html xmlns=&quot;http://www.w3.org/1999/xhtml&quot;&gt;
+
+&lt;head&gt;
+
+&lt;meta charset=&quot;utf-8&quot;&gt;
+&lt;meta http-equiv=&quot;Content-Type&quot; content=&quot;text/h
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>High Performance Data Manipulation(Ken Ren)</title>
+    <link href="http://shichangshun.cn/2016/09/19/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/HignPerformance/"/>
+    <id>http://shichangshun.cn/2016/09/19/学习笔记/HignPerformance/</id>
+    <published>2016-09-19T08:30:30.000Z</published>
+    <updated>2016-09-19T09:06:53.000Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="When-performance-matters"><a href="#When-performance-matters" class="headerlink" title="When performance matters?"></a>When performance matters?</h2><ul>
 <li>Performance does not always matters</li>
 <li>Correctness &gt; Performance</li>
 <li>Performance matters in repeated jobs</li>
@@ -1709,12 +1834,32 @@ $(document).ready(function () {
 <li>Rewrite R code into equivalent C++ code via Rcpp and extensions (0-1000x)</li>
 </ul>
 ]]></content>
-    </entry>
     
-    <entry>
-      <title><![CDATA[【债券笔记】：地方政府债务新政下城投债何去何从]]></title>
-      <url>http://shichangshun.cn/2016/07/12/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E5%9F%8E%E6%8A%95%E5%80%BA%E4%BD%95%E5%8E%BB%E4%BD%95%E4%BB%8E/</url>
-      <content type="html"><![CDATA[<h2 id="融资平台定义"><a href="#融资平台定义" class="headerlink" title="融资平台定义"></a>融资平台定义</h2><p>目前城投平台没有官方统一定义和划分标准。</p>
+    <summary type="html">
+    
+      &lt;h2 id=&quot;When-performance-matters&quot;&gt;&lt;a href=&quot;#When-performance-matters&quot; class=&quot;headerlink&quot; title=&quot;When performance matters?&quot;&gt;&lt;/a&gt;When performa
+    
+    </summary>
+    
+      <category term="学习笔记" scheme="http://shichangshun.cn/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    
+      <category term="R" scheme="http://shichangshun.cn/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/R/"/>
+    
+    
+      <category term="R" scheme="http://shichangshun.cn/tags/R/"/>
+    
+      <category term="High Performance" scheme="http://shichangshun.cn/tags/High-Performance/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>【债券笔记】：地方政府债务新政下城投债何去何从</title>
+    <link href="http://shichangshun.cn/2016/07/12/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E5%9F%8E%E6%8A%95%E5%80%BA%E4%BD%95%E5%8E%BB%E4%BD%95%E4%BB%8E/"/>
+    <id>http://shichangshun.cn/2016/07/12/学习笔记/城投债何去何从/</id>
+    <published>2016-07-12T13:30:30.000Z</published>
+    <updated>2016-07-12T12:58:24.000Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="融资平台定义"><a href="#融资平台定义" class="headerlink" title="融资平台定义"></a>融资平台定义</h2><p>目前城投平台没有官方统一定义和划分标准。</p>
 <ul>
 <li><p><strong>国务院:</strong> “由地方政府及其部门和机构等通过财政拨款或注入土地、股权等资产设立，承担政府投资项目融资功能，并拥有独立法人资格的经济实体。”</p>
 </li>
@@ -1732,12 +1877,32 @@ $(document).ready(function () {
 <p>1978年改革开放至90年代初期， 财政收入占GDP比例持续下降， 中央1994年决定实行分税制改革，将财政收入更加集中于中央、 1995年实施的《预算法》要求地方政府不得直接举债，也不得提供担保。<br>直接融资渠道受限的地方融资平台。同时加快土地资源兑现效率，以此为平台融资提供保障，增加财政收入规模，降低财政收支结构性失衡压力。具体模式为： 地方政府以项目收益为偿债担保通过融资平台的名义融入资金（银行贷款，信托、城投债），并将资金用来支付基础设施建设投资，土地开发等项目的成本，同时地方政府通过土地/现金注资、财政补贴等方式支持融资平台建设， 待项目完工出售后形成卖地收入、房屋销售收入等收益，除返还融资平台成本和管理费外，其他收益形成地方政府财政收入并注入下一轮项目建设中。</p>
 <p><img src="img/chengtou/fig1.png" alt=""></p>
 ]]></content>
-    </entry>
     
-    <entry>
-      <title><![CDATA[经济学研究的“数据控”]]></title>
-      <url>http://shichangshun.cn/2016/07/12/RClub/summerCamp/</url>
-      <content type="html"><![CDATA[<h1 id="R简介"><a href="#R简介" class="headerlink" title="R简介"></a>R简介</h1><h2 id="R"><a href="#R" class="headerlink" title="R"></a>R</h2><blockquote>
+    <summary type="html">
+    
+      &lt;h2 id=&quot;融资平台定义&quot;&gt;&lt;a href=&quot;#融资平台定义&quot; class=&quot;headerlink&quot; title=&quot;融资平台定义&quot;&gt;&lt;/a&gt;融资平台定义&lt;/h2&gt;&lt;p&gt;目前城投平台没有官方统一定义和划分标准。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;国务院:&lt;/str
+    
+    </summary>
+    
+      <category term="学习笔记" scheme="http://shichangshun.cn/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    
+    
+      <category term="债券" scheme="http://shichangshun.cn/tags/%E5%80%BA%E5%88%B8/"/>
+    
+      <category term="中金" scheme="http://shichangshun.cn/tags/%E4%B8%AD%E9%87%91/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>经济学研究的“数据控”</title>
+    <link href="http://shichangshun.cn/2016/07/12/RClub/summerCamp/"/>
+    <id>http://shichangshun.cn/2016/07/12/RClub/summerCamp/</id>
+    <published>2016-07-12T06:30:00.000Z</published>
+    <updated>2016-07-10T09:57:51.000Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="R简介"><a href="#R简介" class="headerlink" title="R简介"></a>R简介</h1><h2 id="R"><a href="#R" class="headerlink" title="R"></a>R</h2><blockquote>
 <p><code>R</code> 是一种具有统计计算和绘图功能的编程语言和软件环境。</p>
 </blockquote>
 <ul>
@@ -1772,12 +1937,28 @@ $(document).ready(function () {
 </ol>
 <p><strong>QQ群号暂且不要公布</strong></p>
 ]]></content>
-    </entry>
     
-    <entry>
-      <title></title>
-      <url>http://shichangshun.cn/2016/07/10/RClub/summerCamp/</url>
-      <content type="html"><![CDATA[<!DOCTYPE html><html><head><meta charset="utf-8"><meta name="categories" content="">
+    <summary type="html">
+    
+      &lt;h1 id=&quot;R简介&quot;&gt;&lt;a href=&quot;#R简介&quot; class=&quot;headerlink&quot; title=&quot;R简介&quot;&gt;&lt;/a&gt;R简介&lt;/h1&gt;&lt;h2 id=&quot;R&quot;&gt;&lt;a href=&quot;#R&quot; class=&quot;headerlink&quot; title=&quot;R&quot;&gt;&lt;/a&gt;R&lt;/h2&gt;&lt;block
+    
+    </summary>
+    
+    
+      <category term="WISE" scheme="http://shichangshun.cn/tags/WISE/"/>
+    
+      <category term="R" scheme="http://shichangshun.cn/tags/R/"/>
+    
+  </entry>
+  
+  <entry>
+    <title></title>
+    <link href="http://shichangshun.cn/2016/07/10/RClub/summerCamp/"/>
+    <id>http://shichangshun.cn/2016/07/10/RClub/summerCamp/</id>
+    <published>2016-07-10T09:15:22.000Z</published>
+    <updated>2016-07-10T09:57:51.000Z</updated>
+    
+    <content type="html"><![CDATA[<!DOCTYPE html><html><head><meta charset="utf-8"><meta name="categories" content="">
 <meta name="tags" content="">
 <meta name="subtitle" content="WISE R Club Introduction">
 <meta name="date" content="2016-07-12 14:30"><style>body {
@@ -2966,12 +3147,26 @@ gR</p>
 <li>技术博客: <a href="https://wise-r.github.io/" target="_blank" rel="external">https://wise-r.github.io/</a></li>
 </ol>
 <p><strong>QQ群号暂且不要公布</strong></p></article></body></html>]]></content>
-    </entry>
     
-    <entry>
-      <title><![CDATA[绘制WISE老师论文关键词词云]]></title>
-      <url>http://shichangshun.cn/2016/07/08/wordcloud/</url>
-      <content type="html"><![CDATA[<blockquote>
+    <summary type="html">
+    
+      &lt;!DOCTYPE html&gt;&lt;html&gt;&lt;head&gt;&lt;meta charset=&quot;utf-8&quot;&gt;&lt;meta name=&quot;categories&quot; content=&quot;&quot;&gt;
+&lt;meta name=&quot;tags&quot; content=&quot;&quot;&gt;
+&lt;meta name=&quot;subtitle&quot; con
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>绘制WISE老师论文关键词词云</title>
+    <link href="http://shichangshun.cn/2016/07/08/wordcloud/"/>
+    <id>http://shichangshun.cn/2016/07/08/wordcloud/</id>
+    <published>2016-07-08T10:15:30.000Z</published>
+    <updated>2016-07-08T14:45:31.000Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote>
 <p>最近看到<a href="http://lchiffon.github.io/" target="_blank" rel="external">@lchiffon</a>写的<a href="http://github.com/lchiffon/wordcloud2" target="_blank" rel="external">wordcloud2</a>，比<a href="https://cran.r-project.org/web/packages/wordcloud/" target="_blank" rel="external">wordcloud</a>使用更简单，效果也更炫酷更灵活。于是想画一个WISE老师发表英文论文的关键词的词云。本文的步骤包括数据抓取和绘制词云两个步骤。</p>
 </blockquote>
 <h1 id="0-准备"><a href="#0-准备" class="headerlink" title="0. 准备"></a>0. 准备</h1><h2 id="0-1-安装wordcloud2"><a href="#0-1-安装wordcloud2" class="headerlink" title="0.1 安装wordcloud2"></a>0.1 安装<code>wordcloud2</code></h2><p><code>wordcloud2</code>首次运行前需要从作者的github下载安装，运行下面的代码:</p>
@@ -3036,12 +3231,31 @@ gR</p>
 </ol>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">## R version 3.3.0 (2016-05-03)</div><div class="line">## Platform: x86_64-apple-darwin13.4.0 (64-bit)</div><div class="line">## Running under: OS X 10.11.1 (El Capitan)</div><div class="line">## </div><div class="line">## locale:</div><div class="line">## [1] zh_CN.UTF-8/zh_CN.UTF-8/zh_CN.UTF-8/C/zh_CN.UTF-8/zh_CN.UTF-8</div><div class="line">## </div><div class="line">## attached base packages:</div><div class="line">## [1] stats     graphics  grDevices utils     datasets  methods   base     </div><div class="line">## </div><div class="line">## loaded via a namespace (and not attached):</div><div class="line">##  [1] magrittr_1.5    formatR_1.2.1   tools_3.3.0     htmltools_0.3.5</div><div class="line">##  [5] yaml_2.1.13     Rcpp_0.12.5     stringi_1.0-1   rmarkdown_0.8  </div><div class="line">##  [9] knitr_1.12.3    stringr_1.0.0   digest_0.6.9    evaluate_0.8</div></pre></td></tr></table></figure>
 ]]></content>
-    </entry>
     
-    <entry>
-      <title><![CDATA[债券发行与承销笔记]]></title>
-      <url>http://shichangshun.cn/2016/04/19/%E5%80%BA%E5%88%B8%E5%8F%91%E8%A1%8C%E4%B8%8E%E6%89%BF%E9%94%80%E7%AC%94%E8%AE%B0/</url>
-      <content type="html"><![CDATA[<h2 id="一、承销商"><a href="#一、承销商" class="headerlink" title="一、承销商"></a>一、承销商</h2><ul>
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;最近看到&lt;a href=&quot;http://lchiffon.github.io/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;@lchiffon&lt;/a&gt;写的&lt;a href=&quot;http://github.com/lchiffon/w
+    
+    </summary>
+    
+      <category term="技术" scheme="http://shichangshun.cn/categories/%E6%8A%80%E6%9C%AF/"/>
+    
+    
+      <category term="WISE" scheme="http://shichangshun.cn/tags/WISE/"/>
+    
+      <category term="R" scheme="http://shichangshun.cn/tags/R/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>债券发行与承销笔记</title>
+    <link href="http://shichangshun.cn/2016/04/19/%E5%80%BA%E5%88%B8%E5%8F%91%E8%A1%8C%E4%B8%8E%E6%89%BF%E9%94%80%E7%AC%94%E8%AE%B0/"/>
+    <id>http://shichangshun.cn/2016/04/19/债券发行与承销笔记/</id>
+    <published>2016-04-19T11:23:30.000Z</published>
+    <updated>2016-07-07T03:57:03.000Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="一、承销商"><a href="#一、承销商" class="headerlink" title="一、承销商"></a>一、承销商</h2><ul>
 <li>包销代销债券， 寻找投资者，募集资金， 一级市场发行人与投资者之间的媒介</li>
 <li>承销团有三家或以上的可以设主承或副主承，除了主承，联席主承和副主承外其他为分销</li>
 <li>债券承销商具有顾问、购买、分销及保护等功能：<ul>
@@ -3078,12 +3292,30 @@ gR</p>
 <li>债券发行额根据</li>
 </ol>
 ]]></content>
-    </entry>
     
-    <entry>
-      <title><![CDATA[流动性分析框架]]></title>
-      <url>http://shichangshun.cn/2016/04/03/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E6%B5%81%E5%8A%A8%E6%80%A7%E5%88%86%E6%9E%90%E6%A1%86%E6%9E%B6/</url>
-      <content type="html"><![CDATA[<h1 id="流动性分析框架"><a href="#流动性分析框架" class="headerlink" title="流动性分析框架"></a>流动性分析框架</h1><h2 id="1-高频率流动性指标检测"><a href="#1-高频率流动性指标检测" class="headerlink" title="1. 高频率流动性指标检测"></a>1. 高频率流动性指标检测</h2><ul>
+    <summary type="html">
+    
+      &lt;h2 id=&quot;一、承销商&quot;&gt;&lt;a href=&quot;#一、承销商&quot; class=&quot;headerlink&quot; title=&quot;一、承销商&quot;&gt;&lt;/a&gt;一、承销商&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;包销代销债券， 寻找投资者，募集资金， 一级市场发行人与投资者之间的媒介&lt;/li&gt;
+&lt;li&gt;承销团有三家
+    
+    </summary>
+    
+    
+      <category term="工作" scheme="http://shichangshun.cn/tags/%E5%B7%A5%E4%BD%9C/"/>
+    
+      <category term="债券" scheme="http://shichangshun.cn/tags/%E5%80%BA%E5%88%B8/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>流动性分析框架</title>
+    <link href="http://shichangshun.cn/2016/04/03/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E6%B5%81%E5%8A%A8%E6%80%A7%E5%88%86%E6%9E%90%E6%A1%86%E6%9E%B6/"/>
+    <id>http://shichangshun.cn/2016/04/03/学习笔记/流动性分析框架/</id>
+    <published>2016-04-03T08:30:30.000Z</published>
+    <updated>2016-07-07T10:52:09.000Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="流动性分析框架"><a href="#流动性分析框架" class="headerlink" title="流动性分析框架"></a>流动性分析框架</h1><h2 id="1-高频率流动性指标检测"><a href="#1-高频率流动性指标检测" class="headerlink" title="1. 高频率流动性指标检测"></a>1. 高频率流动性指标检测</h2><ul>
 <li><strong>1天及7天回购利率利差：</strong>  利差大小/货币市场的期限利差反映预期及供需</li>
 <li><strong>回购开盘利率变动、3M Shibor报价</strong></li>
 <li><strong>回购与拆借占比</strong> </li>
@@ -3177,12 +3409,30 @@ gR</p>
 
 
 ]]></content>
-    </entry>
     
-    <entry>
-      <title><![CDATA[Terminal]]></title>
-      <url>http://shichangshun.cn/2016/03/29/%E6%8A%80%E6%9C%AF/2016-03-29-terminal/</url>
-      <content type="html"><![CDATA[<h2 id="命令"><a href="#命令" class="headerlink" title="命令"></a>命令</h2><ul>
+    <summary type="html">
+    
+      &lt;h1 id=&quot;流动性分析框架&quot;&gt;&lt;a href=&quot;#流动性分析框架&quot; class=&quot;headerlink&quot; title=&quot;流动性分析框架&quot;&gt;&lt;/a&gt;流动性分析框架&lt;/h1&gt;&lt;h2 id=&quot;1-高频率流动性指标检测&quot;&gt;&lt;a href=&quot;#1-高频率流动性指标检测&quot; class=&quot;
+    
+    </summary>
+    
+      <category term="学习笔记" scheme="http://shichangshun.cn/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    
+    
+      <category term="债券" scheme="http://shichangshun.cn/tags/%E5%80%BA%E5%88%B8/"/>
+    
+      <category term="Economics" scheme="http://shichangshun.cn/tags/Economics/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Terminal</title>
+    <link href="http://shichangshun.cn/2016/03/29/%E6%8A%80%E6%9C%AF/2016-03-29-terminal/"/>
+    <id>http://shichangshun.cn/2016/03/29/技术/2016-03-29-terminal/</id>
+    <published>2016-03-29T10:35:59.000Z</published>
+    <updated>2016-07-07T07:53:28.000Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="命令"><a href="#命令" class="headerlink" title="命令"></a>命令</h2><ul>
 <li><code>ls</code>: 显示当前路径下的文件和文件夹</li>
 <li><code>cd</code>： 改变路径</li>
 <li><code>mkdir</code>: 创建新的文件夹</li>
@@ -3203,12 +3453,30 @@ gR</p>
 <p><code>hostname</code>返回当前主机名（位置）</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">[shihchosen@Shihs-MacBook-Air  ~/Documents   master ●✚  hostname</div><div class="line">Shihs-MacBook-Air.local</div></pre></td></tr></table></figure>
 ]]></content>
-    </entry>
     
-    <entry>
-      <title><![CDATA[使用ggthemes，让你画出杂志配图般的图]]></title>
-      <url>http://shichangshun.cn/2015/11/18/%E6%8A%80%E6%9C%AF/2015-11-18-ggthemes/</url>
-      <content type="html"><![CDATA[<h1 id="使用ggthemes，让你画出杂志配图般的图"><a href="#使用ggthemes，让你画出杂志配图般的图" class="headerlink" title="使用ggthemes，让你画出杂志配图般的图"></a>使用ggthemes，让你画出杂志配图般的图</h1><h2 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h2><p><code>ggplot2</code>是<code>R</code>界大神<a href="http://had.co.nz/" target="_blank" rel="external">Hadley Wickham</a>写的众多改变<code>R</code>的package中的一个，也是使用最普遍的package之一，ggplot2通过图层的方法极大的拓展了R的绘图功能，能够自由选择描绘数据的图形，配色，坐标轴，标识等等。同时ggplot2也给除了模板的功能，本身自带几个简单的<code>theme_grey</code>(Default),<code>theme_bw</code>,<code>theme_light</code>等主题，使用者也可以自定义自己的主题，包括配色，legend位置，实用的字体等等。 </p>
+    <summary type="html">
+    
+      &lt;h2 id=&quot;命令&quot;&gt;&lt;a href=&quot;#命令&quot; class=&quot;headerlink&quot; title=&quot;命令&quot;&gt;&lt;/a&gt;命令&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;ls&lt;/code&gt;: 显示当前路径下的文件和文件夹&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;cd&lt;/code&gt;： 改变路径&lt;/
+    
+    </summary>
+    
+      <category term="技术" scheme="http://shichangshun.cn/categories/%E6%8A%80%E6%9C%AF/"/>
+    
+    
+      <category term="Terminal" scheme="http://shichangshun.cn/tags/Terminal/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>使用ggthemes，让你画出杂志配图般的图</title>
+    <link href="http://shichangshun.cn/2015/11/18/%E6%8A%80%E6%9C%AF/2015-11-18-ggthemes/"/>
+    <id>http://shichangshun.cn/2015/11/18/技术/2015-11-18-ggthemes/</id>
+    <published>2015-11-18T02:10:30.000Z</published>
+    <updated>2016-07-07T08:12:28.000Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="使用ggthemes，让你画出杂志配图般的图"><a href="#使用ggthemes，让你画出杂志配图般的图" class="headerlink" title="使用ggthemes，让你画出杂志配图般的图"></a>使用ggthemes，让你画出杂志配图般的图</h1><h2 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h2><p><code>ggplot2</code>是<code>R</code>界大神<a href="http://had.co.nz/" target="_blank" rel="external">Hadley Wickham</a>写的众多改变<code>R</code>的package中的一个，也是使用最普遍的package之一，ggplot2通过图层的方法极大的拓展了R的绘图功能，能够自由选择描绘数据的图形，配色，坐标轴，标识等等。同时ggplot2也给除了模板的功能，本身自带几个简单的<code>theme_grey</code>(Default),<code>theme_bw</code>,<code>theme_light</code>等主题，使用者也可以自定义自己的主题，包括配色，legend位置，实用的字体等等。 </p>
 <p>但是对大部分初级使用者来说自定义主题是比较困难的，并且很多人也不知道自己想要什么样的主题，<a href="http://jrnold.me" target="_blank" rel="external">Jeffrey Arnold</a>写的这个<a href="https://github.com/jrnold/ggthemes" target="_blank" rel="external">ggthemes</a>这个包或许可以帮助你。<a href="https://github.com/jrnold/ggthemes" target="_blank" rel="external">ggthemes</a>提供了很多现成的（同时也是精美的）主题，能够免了纠结配色调整等细节的担忧，下面的内容多翻译自ggthemes的README：</p>
 <p>ggthemes 包括了ggplot2几个扩展的geoms, scales, and themes</p>
 <h3 id="Geoms"><a href="#Geoms" class="headerlink" title="Geoms"></a>Geoms</h3><ul>
@@ -3341,12 +3609,32 @@ gR</p>
 </li>
 </ol>
 ]]></content>
-    </entry>
     
-    <entry>
-      <title><![CDATA[Mactex下使用xeCJK输入中文]]></title>
-      <url>http://shichangshun.cn/2015/11/18/%E6%8A%80%E6%9C%AF/2015-11-18-using-xeCJK/</url>
-      <content type="html"><![CDATA[<h1 id="Mactex下使用xeCJK输入中文"><a href="#Mactex下使用xeCJK输入中文" class="headerlink" title="Mactex下使用xeCJK输入中文"></a>Mactex下使用xeCJK输入中文</h1><p>以前用<code>latex</code>输入中文的时候都是使用<code>\documents{ctexart}</code>：</p>
+    <summary type="html">
+    
+      &lt;h1 id=&quot;使用ggthemes，让你画出杂志配图般的图&quot;&gt;&lt;a href=&quot;#使用ggthemes，让你画出杂志配图般的图&quot; class=&quot;headerlink&quot; title=&quot;使用ggthemes，让你画出杂志配图般的图&quot;&gt;&lt;/a&gt;使用ggthemes，让你画出杂志配图般
+    
+    </summary>
+    
+      <category term="技术" scheme="http://shichangshun.cn/categories/%E6%8A%80%E6%9C%AF/"/>
+    
+    
+      <category term="R" scheme="http://shichangshun.cn/tags/R/"/>
+    
+      <category term="数据可视化" scheme="http://shichangshun.cn/tags/%E6%95%B0%E6%8D%AE%E5%8F%AF%E8%A7%86%E5%8C%96/"/>
+    
+      <category term="ggplot2" scheme="http://shichangshun.cn/tags/ggplot2/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Mactex下使用xeCJK输入中文</title>
+    <link href="http://shichangshun.cn/2015/11/18/%E6%8A%80%E6%9C%AF/2015-11-18-using-xeCJK/"/>
+    <id>http://shichangshun.cn/2015/11/18/技术/2015-11-18-using-xeCJK/</id>
+    <published>2015-11-17T22:23:30.000Z</published>
+    <updated>2016-07-08T01:46:08.000Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="Mactex下使用xeCJK输入中文"><a href="#Mactex下使用xeCJK输入中文" class="headerlink" title="Mactex下使用xeCJK输入中文"></a>Mactex下使用xeCJK输入中文</h1><p>以前用<code>latex</code>输入中文的时候都是使用<code>\documents{ctexart}</code>：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">\documentclass&#123;ctexart&#125;</div><div class="line">\begin&#123;document&#125;</div><div class="line"></div><div class="line">你好世界！ 我是\textbf&#123;石长顺&#125;，</div><div class="line">我喜欢\LaTeX, \textsf&#123;哈哈&#125;</div><div class="line"></div><div class="line">\end&#123;document&#125;</div></pre></td></tr></table></figure>
 <p><img src="/img/xecjk/ctex.png" alt="1"></p>
 <h2 id="使用xeCJK"><a href="#使用xeCJK" class="headerlink" title="使用xeCJK"></a>使用<code>xeCJK</code></h2><p>最近看到关于<code>xeCJK</code>的介绍，修改字体很方便，分享一下.</p>
@@ -3361,12 +3649,30 @@ gR</p>
 </ol>
 <p> <a rel="external" href="http://creativecommons.org/licenses/by/4.0/" target="_blank"><img alt="知识共享许可协议" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png"></a><br>本作品采用<a rel="external" href="http://creativecommons.org/licenses/by/4.0/" target="_blank">知识共享署名 4.0 国际许可协议</a>进行许可。</p>
 ]]></content>
-    </entry>
     
-    <entry>
-      <title><![CDATA[读取大型数据文件的指定行和指定列]]></title>
-      <url>http://shichangshun.cn/2015/11/09/%E6%8A%80%E6%9C%AF/2015-11-09-Read-rows-col/</url>
-      <content type="html"><![CDATA[<h1 id="读取大型数据文件的指定行和指定列"><a href="#读取大型数据文件的指定行和指定列" class="headerlink" title="读取大型数据文件的指定行和指定列"></a>读取大型数据文件的指定行和指定列</h1><blockquote>
+    <summary type="html">
+    
+      &lt;h1 id=&quot;Mactex下使用xeCJK输入中文&quot;&gt;&lt;a href=&quot;#Mactex下使用xeCJK输入中文&quot; class=&quot;headerlink&quot; title=&quot;Mactex下使用xeCJK输入中文&quot;&gt;&lt;/a&gt;Mactex下使用xeCJK输入中文&lt;/h1&gt;&lt;p&gt;以前用&lt;co
+    
+    </summary>
+    
+      <category term="技术" scheme="http://shichangshun.cn/categories/%E6%8A%80%E6%9C%AF/"/>
+    
+    
+      <category term="LaTeX" scheme="http://shichangshun.cn/tags/LaTeX/"/>
+    
+      <category term="中文" scheme="http://shichangshun.cn/tags/%E4%B8%AD%E6%96%87/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>读取大型数据文件的指定行和指定列</title>
+    <link href="http://shichangshun.cn/2015/11/09/%E6%8A%80%E6%9C%AF/2015-11-09-Read-rows-col/"/>
+    <id>http://shichangshun.cn/2015/11/09/技术/2015-11-09-Read-rows-col/</id>
+    <published>2015-11-09T12:49:30.000Z</published>
+    <updated>2016-07-07T07:54:08.000Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="读取大型数据文件的指定行和指定列"><a href="#读取大型数据文件的指定行和指定列" class="headerlink" title="读取大型数据文件的指定行和指定列"></a>读取大型数据文件的指定行和指定列</h1><blockquote>
 <p>在实际数据分析过程中，我们经常会遇到体积比较大的数据文件，有些甚至大至几个G，每次读取大型数据文件的时候都需要耗费大量时间。另外因为R是使用内存进行计算的，所以有些大型数据文件，个人电脑是无法读取的。如果我们只是想熟悉数据的结构，并不需要将数据的完全读取，这时候读取部分行列就会很有用。</p>
 </blockquote>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">if(!file.exists(&quot;read&quot;))&#123;</div><div class="line">  dir.create(&quot;read&quot;)</div><div class="line">&#125;# 创建工作路径文件夹</div><div class="line"></div><div class="line"></div><div class="line">setwd(&quot;./read&quot;) # 设置工作路径</div><div class="line"></div><div class="line">if(!file.exists(&quot;data&quot;))&#123;</div><div class="line">  dir.create(&quot;data&quot;)</div><div class="line">&#125; # 新建data文件夹</div></pre></td></tr></table></figure>
@@ -3410,12 +3716,29 @@ gR</p>
 <p><img src="/img/DFF.png" alt="DFF"> </p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line">## R version 3.2.2 (2015-08-14)</div><div class="line">## Platform: x86_64-apple-darwin13.4.0 (64-bit)</div><div class="line">## Running under: OS X 10.11.1 (El Capitan)</div><div class="line">## </div><div class="line">## locale:</div><div class="line">## [1] zh_CN.UTF-8/zh_CN.UTF-8/zh_CN.UTF-8/C/zh_CN.UTF-8/zh_CN.UTF-8</div><div class="line">## </div><div class="line">## attached base packages:</div><div class="line">## [1] stats     graphics  grDevices utils     datasets  methods   base     </div><div class="line">## </div><div class="line">## other attached packages:</div><div class="line">## [1] ggthemes_2.2.1      ggplot2_1.0.1       XLConnect_0.2-11   </div><div class="line">## [4] XLConnectJars_0.2-9 data.table_1.9.6   </div><div class="line">## </div><div class="line">## loaded via a namespace (and not attached):</div><div class="line">##  [1] Rcpp_0.12.1      knitr_1.11       magrittr_1.5     MASS_7.3-43     </div><div class="line">##  [5] munsell_0.4.2    colorspace_1.2-6 stringr_1.0.0    plyr_1.8.3      </div><div class="line">##  [9] tools_3.2.2      grid_3.2.2       gtable_0.1.2     htmltools_0.2.6 </div><div class="line">## [13] yaml_2.1.13      digest_0.6.8     rJava_0.9-7      reshape2_1.4.1  </div><div class="line">## [17] evaluate_0.8     rmarkdown_0.8    labeling_0.3     stringi_1.0-1   </div><div class="line">## [21] scales_0.3.0     chron_2.3-47     proto_0.3-10</div></pre></td></tr></table></figure>
 ]]></content>
-    </entry>
     
-    <entry>
-      <title><![CDATA[data.table Way2]]></title>
-      <url>http://shichangshun.cn/2015/11/02/%E6%8A%80%E6%9C%AF/2015-11-02-data-table2/</url>
-      <content type="html"><![CDATA[<h1 id="data-table-Way-2"><a href="#data-table-Way-2" class="headerlink" title="data.table Way 2"></a>data.table Way 2</h1><p>继续<a href="http://changshun.github.io/2015/11/02/data-table.html" target="_blank" rel="external">data.table1</a></p>
+    <summary type="html">
+    
+      &lt;h1 id=&quot;读取大型数据文件的指定行和指定列&quot;&gt;&lt;a href=&quot;#读取大型数据文件的指定行和指定列&quot; class=&quot;headerlink&quot; title=&quot;读取大型数据文件的指定行和指定列&quot;&gt;&lt;/a&gt;读取大型数据文件的指定行和指定列&lt;/h1&gt;&lt;blockquote&gt;
+&lt;p&gt;在
+    
+    </summary>
+    
+      <category term="技术" scheme="http://shichangshun.cn/categories/%E6%8A%80%E6%9C%AF/"/>
+    
+    
+      <category term="R" scheme="http://shichangshun.cn/tags/R/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>data.table Way2</title>
+    <link href="http://shichangshun.cn/2015/11/02/%E6%8A%80%E6%9C%AF/2015-11-02-data-table2/"/>
+    <id>http://shichangshun.cn/2015/11/02/技术/2015-11-02-data-table2/</id>
+    <published>2015-11-02T15:15:59.000Z</published>
+    <updated>2016-07-07T07:54:20.000Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="data-table-Way-2"><a href="#data-table-Way-2" class="headerlink" title="data.table Way 2"></a>data.table Way 2</h1><p>继续<a href="http://changshun.github.io/2015/11/02/data-table.html" target="_blank" rel="external">data.table1</a></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">library(data.table)</div><div class="line">library(ggplot2)</div><div class="line">library(plyr)</div></pre></td></tr></table></figure>
 <p>我们继续使用Basketball Reference: boxscore数据和<code>mtcars</code></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">boxscore &lt;- fread(&quot;/Users/shihchosen/Desktop/boxscore.csv&quot;)</div><div class="line">dtb &lt;- copy(boxscore)</div><div class="line">dtb[,1:2:=NULL]</div><div class="line">dtb[,year:=year(date)]</div><div class="line">head(dtb)</div></pre></td></tr></table></figure>
@@ -3502,12 +3825,28 @@ gR</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">system.time(DT &lt;- fread(&quot;test.csv&quot;))</div></pre></td></tr></table></figure>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">##    user  system elapsed </div><div class="line">##   0.627   0.026   0.657</div></pre></td></tr></table></figure>
 ]]></content>
-    </entry>
     
-    <entry>
-      <title><![CDATA[data.table Way1]]></title>
-      <url>http://shichangshun.cn/2015/11/02/%E6%8A%80%E6%9C%AF/2015-11-02-data-table/</url>
-      <content type="html"><![CDATA[<h1 id="data-table-Way"><a href="#data-table-Way" class="headerlink" title="data.table Way"></a>data.table Way</h1><blockquote>
+    <summary type="html">
+    
+      &lt;h1 id=&quot;data-table-Way-2&quot;&gt;&lt;a href=&quot;#data-table-Way-2&quot; class=&quot;headerlink&quot; title=&quot;data.table Way 2&quot;&gt;&lt;/a&gt;data.table Way 2&lt;/h1&gt;&lt;p&gt;继续&lt;a href=&quot;htt
+    
+    </summary>
+    
+      <category term="技术" scheme="http://shichangshun.cn/categories/%E6%8A%80%E6%9C%AF/"/>
+    
+    
+      <category term="R" scheme="http://shichangshun.cn/tags/R/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>data.table Way1</title>
+    <link href="http://shichangshun.cn/2015/11/02/%E6%8A%80%E6%9C%AF/2015-11-02-data-table/"/>
+    <id>http://shichangshun.cn/2015/11/02/技术/2015-11-02-data-table/</id>
+    <published>2015-11-02T13:15:59.000Z</published>
+    <updated>2016-07-07T07:54:36.000Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="data-table-Way"><a href="#data-table-Way" class="headerlink" title="data.table Way"></a>data.table Way</h1><blockquote>
 <p>This is a learning note for the course Data Analysis in R, the data.table Way.<br>This course introduces the package ‘data.table’ which is a very powerful tool for data manipulation. I borrow two built-in data frames: mtcars and iris throughout the entire article. </p>
 </blockquote>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">library(data.table)</div><div class="line">library(ggplot2)</div><div class="line">library(plyr)</div></pre></td></tr></table></figure>
@@ -3623,12 +3962,29 @@ gR</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">DT1 &lt;- DT[, model:=rownames(mtcars)[1:5]]</div><div class="line"># Check DT</div><div class="line">DT</div></pre></td></tr></table></figure>
 <h2 id="和-的区别"><a href="#和-的区别" class="headerlink" title="=和:=的区别"></a><code>=</code>和<code>:=</code>的区别</h2><p>两者都会创建新的列，前者新建这个列，不改变原来的<code>data.table</code>,后者会在原来的<code>data.table</code>添加列。</p>
 ]]></content>
-    </entry>
     
-    <entry>
-      <title><![CDATA[测试:使用MathJax输入LaTeX公式]]></title>
-      <url>http://shichangshun.cn/2015/10/06/%E6%8A%80%E6%9C%AF/2015-10-06-Mathjax/</url>
-      <content type="html"><![CDATA[<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+    <summary type="html">
+    
+      &lt;h1 id=&quot;data-table-Way&quot;&gt;&lt;a href=&quot;#data-table-Way&quot; class=&quot;headerlink&quot; title=&quot;data.table Way&quot;&gt;&lt;/a&gt;data.table Way&lt;/h1&gt;&lt;blockquote&gt;
+&lt;p&gt;This is a
+    
+    </summary>
+    
+      <category term="技术" scheme="http://shichangshun.cn/categories/%E6%8A%80%E6%9C%AF/"/>
+    
+    
+      <category term="R" scheme="http://shichangshun.cn/tags/R/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>测试:使用MathJax输入LaTeX公式</title>
+    <link href="http://shichangshun.cn/2015/10/06/%E6%8A%80%E6%9C%AF/2015-10-06-Mathjax/"/>
+    <id>http://shichangshun.cn/2015/10/06/技术/2015-10-06-Mathjax/</id>
+    <published>2015-10-06T13:15:59.000Z</published>
+    <updated>2016-07-07T07:54:49.000Z</updated>
+    
+    <content type="html"><![CDATA[<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
     </script>
 
 
@@ -3638,119 +3994,25 @@ gR</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">auto_ids: true</div><div class="line">  footnote_nr: 1</div><div class="line">  entity_output: as_char</div><div class="line">  toc_levels: 1..6</div><div class="line">  use_coderay: false</div><div class="line">  mathjax: true</div></pre></td></tr></table></figure>
 <p>$$\bar{Y} = AK^{\alpha}L^{1-\alpha}$$</p>
 ]]></content>
-    </entry>
     
-    <entry>
-      <title><![CDATA[Mac下安装R和Rstudio]]></title>
-      <url>http://shichangshun.cn/2015/10/06/%E6%8A%80%E6%9C%AF/2015-10-06-install-R-Mac/</url>
-      <content type="html"><![CDATA[<p><section id="table-of-contents" class="toc"><br>  <header><br>    <h3>Overview</h3><br>  </header></section></p>
-<p><div id="drawer" markdown="1"></div></p>
-<ul>
-<li>Auto generated table of contents<br>{:toc}<br><br><!-- /#table-of-contents --></li>
-</ul>
-<blockquote>
-<p>本教程参考：<a href="http://changshun.github.io/tutorial/2015/10/06/Window%E4%B8%8B%E5%AE%89%E8%A3%85R%E5%92%8CRstudio.html" target="_blank" rel="external">Window下安装R和Rstudio</a></p>
-</blockquote>
-<h2 id="1-安装R"><a href="#1-安装R" class="headerlink" title="1.安装R"></a>1.安装R</h2><h3 id="1-1-下载R"><a href="#1-1-下载R" class="headerlink" title="1.1 下载R"></a>1.1 下载R</h3><hr>
-<p>你能够从<a href="http://mirrors.xmu.edu.cn/CRAN/" target="_blank" rel="external">http://mirrors.xmu.edu.cn/CRAN/</a>上下载最新的<code>R</code>.<br><img src="http://i.imgbox.com/CG0TTtSs.png" alt="Path"></p>
-<h3 id="1-2-安装R"><a href="#1-2-安装R" class="headerlink" title="1.2 安装R"></a>1.2 安装R</h3><hr>
-<p><img src="http://i.imgbox.com/Z7H0za0A.png" alt=""></p>
-<p><strong>注意</strong>: 尽量不要安装到中文路径下， 以后使用时可能会有麻烦</p>
-<p><img src="http://i.imgbox.com/xS53DAon.png" alt="bit"></p>
-<p><img src="http://i.imgbox.com/Z7H0za0A.png" alt="成功"></p>
-<h2 id="2-安装RStudio"><a href="#2-安装RStudio" class="headerlink" title="2. 安装RStudio"></a>2. 安装RStudio</h2><hr>
-<h3 id="2-1-下载RStudio"><a href="#2-1-下载RStudio" class="headerlink" title="2.1 下载RStudio"></a>2.1 下载RStudio</h3><hr>
-<p>你能够从<a href="https://www.rstudio.com/" target="_blank" rel="external">RStudio官网</a>上下载最新的<code>RStudio</code>.<br><img src="http://i.imgbox.com/tK6TOXLp.png" alt="Path"></p>
-<h3 id="2-2-安装RStudio"><a href="#2-2-安装RStudio" class="headerlink" title="2.2 安装RStudio"></a>2.2 安装RStudio</h3><hr>
-<p><img src="http://i.imgbox.com/CrbrYKfx.jpg" alt=""></p>
-<p><img src="http://i.imgbox.com/2yJKBFtP.png" alt=""></p>
-<h2 id="3-更新R"><a href="#3-更新R" class="headerlink" title="3. 更新R"></a>3. 更新R</h2><hr>
-<h3 id="3-1-Fool-Way"><a href="#3-1-Fool-Way" class="headerlink" title="3.1 Fool Way"></a>3.1 Fool Way</h3><ol>
-<li>备份你的程序包<br>重新安装R软件时可能会把你已经安装的<code>package</code>覆盖， 为了避免，我们需要先进行备份(将<code>library</code>文件夹复制到他处)。</li>
-</ol>
-<p>程序包位置：<code>/Library/Frameworks/R.framework/Versions/3.2/Resources/library</code></p>
-<p><strong>如何进入路径</strong></p>
-<blockquote>
-<p>打开<code>finder</code>, 使用<code>⌘(command)+⇧（shift）+G</code>, 输入上面路径就可以进入路径<br><img src="http://i.imgbox.com/K68vFhUO.png" alt="path2"></p>
-</blockquote>
-<ol>
-<li>重复<code>1.1</code>和<code>1.2</code></li>
-</ol>
-<h3 id="3-2-The-Harder-Way"><a href="#3-2-The-Harder-Way" class="headerlink" title="3.2 The Harder Way"></a>3.2 The Harder Way</h3><hr>
-<p>Now we set up the global library for R. More details about this is described in [Tal Galili’s blog post][1]. Although you are using the latest version of R, you can still follow my steps. It will help you set a global library for R. This will prevent some troubles in the future.</p>
-<p>Open your R. Run <code>chooseCRANmirror()</code> command line(Type it and hit <code>ENTER</code>) .Choose <code>China(Xiamen)</code>.</p>
-<p><img src="http://i.imgbox.com/nMC12nzx.jpg" alt="mirror" title="Choose Mirror"></p>
-<p>Run the following codes line by line.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">source(&quot;http://www.r-statistics.com/wp-content/uploads/2010/04/upgrading-R-on-windows.r.txt&quot;)</div><div class="line">Old.R.RunMe()</div></pre></td></tr></table></figure></p>
-<p><img src="http://i.imgbox.com/yn5SmnIH.jpg" alt="oldr" title="Set global lib"></p>
-<p>It will ask you whether or not to quit R. Just type <code>n</code> and hit <code>ENTER</code>. Then run <code>New.R.RunMe()</code> just the same way.</p>
-<p>Once you have done these, from now on, whenever you want to update to a new version of R in the future, all you will need to do are the following <strong>TWO</strong> steps:</p>
-<ol>
-<li>Download and install the new version of R</li>
-<li>Open your new R and run the following codes</li>
-</ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">source(&quot;http://www.r-statistics.com/wp-content/uploads/2010/04/upgrading-R-on-windows.r.txt&quot;)</div><div class="line">New.R.RunMe()</div></pre></td></tr></table></figure>
-]]></content>
-    </entry>
+    <summary type="html">
     
-    <entry>
-      <title><![CDATA[在Rmarkdown使用中文的几种方法]]></title>
-      <url>http://shichangshun.cn/2015/10/06/%E6%8A%80%E6%9C%AF/rmarkdown/</url>
-      <content type="html"><![CDATA[<h1 id="在Rmarkdown使用中文的几种方法"><a href="#在Rmarkdown使用中文的几种方法" class="headerlink" title="在Rmarkdown使用中文的几种方法"></a>在<code>Rmarkdown</code>使用中文的几种方法</h1><h2 id="方法-一：加载包"><a href="#方法-一：加载包" class="headerlink" title="方法 一：加载包"></a>方法 一：加载包</h2><p>在<code>Rmd</code>文档头加载<code>xeCJK</code>包, 如下代码：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">header-includes:</div><div class="line">- \usepackage&#123;xeCJK&#125;</div></pre></td></tr></table></figure>
-<p><img src="/img/rmarkdown/xecjk.png" alt="xecjk"></p>
-<p><code>Knit PDF</code>前点击旁边的设置, 在<code>高级设置</code>的选项里设置<code>LaTeX Engine</code>为<code>xelatex</code></p>
-<h2 id="方法-二：-修改default-tex文件"><a href="#方法-二：-修改default-tex文件" class="headerlink" title="方法 二： 修改default.tex文件"></a>方法 二： 修改<code>default.tex</code>文件</h2><p>进入<code>R</code>的安装路径下<code>library</code>的<code>rmarkdown</code>的路径，（<code>/library/rmarkdown/rmd/latex</code>） 进入在<code>default.tex</code>文件内添加一行<code>\usepackage{xeCJK}</code><br>然后再运行含有中文汉字的<code>Rmd</code>文件。</p>
-<blockquote>
-<p>问：如何知道<code>library</code>的路径？</p>
-<p>答： <code>.libPaths()</code></p>
-</blockquote>
-]]></content>
-    </entry>
+      &lt;script type=&quot;text/javascript&quot; src=&quot;http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML&quot;&gt;
+    &lt;/script&gt;
+
+
+
+&lt;figure
     
-    <entry>
-      <title><![CDATA[Window下安装R和Rstudio]]></title>
-      <url>http://shichangshun.cn/2015/10/06/%E6%8A%80%E6%9C%AF/2015-10-06-install-R-Windows/</url>
-      <content type="html"><![CDATA[<p><section id="table-of-contents" class="toc"><br>  <header><br>    <h3>Overview</h3><br>  </header></section></p>
-<p><div id="drawer" markdown="1"></div></p>
-<ul>
-<li>Auto generated table of contents<br>{:toc}<br><br><!-- /#table-of-contents --></li>
-</ul>
-<h2 id="1-安装R"><a href="#1-安装R" class="headerlink" title="1.安装R"></a>1.安装R</h2><h3 id="1-1-下载R"><a href="#1-1-下载R" class="headerlink" title="1.1 下载R"></a>1.1 下载R</h3><hr>
-<p>你能够从<a href="http://mirrors.xmu.edu.cn/CRAN/" target="_blank" rel="external">http://mirrors.xmu.edu.cn/CRAN/</a>上下载最新的<code>R</code>.<br><img src="http://i.imgbox.com/VGVYmBnr.png" alt="Path"></p>
-<h3 id="1-2-安装R"><a href="#1-2-安装R" class="headerlink" title="1.2 安装R"></a>1.2 安装R</h3><hr>
-<p><img src="http://i.imgbox.com/8GDBWR9w.png" alt="CRAN"></p>
-<p><strong>注意</strong>: 尽量不要安装到中文路径下， 以后使用时可能会有麻烦</p>
-<p><img src="http://i.imgbox.com/sHKrGASq.png" alt="bit"></p>
-<p><img src="http://i.imgbox.com/nQ7cCpWC.png" alt="成功"></p>
-<h2 id="2-安装RStudio"><a href="#2-安装RStudio" class="headerlink" title="2. 安装RStudio"></a>2. 安装RStudio</h2><hr>
-<h3 id="2-1-下载RStudio"><a href="#2-1-下载RStudio" class="headerlink" title="2.1 下载RStudio"></a>2.1 下载RStudio</h3><hr>
-<p>你能够从<a href="https://www.rstudio.com/" target="_blank" rel="external">RStudio官网</a>上下载最新的<code>RStudio</code>.<br><img src="http://i.imgbox.com/tK6TOXLp.png" alt="Path"></p>
-<h3 id="2-2-安装RStudio"><a href="#2-2-安装RStudio" class="headerlink" title="2.2 安装RStudio"></a>2.2 安装RStudio</h3><hr>
-<p><img src="http://i.imgbox.com/fzKEm7t5.png" alt=""></p>
-<p><img src="http://i.imgbox.com/iCe2KoYK.png" alt=""></p>
-<h2 id="3-更新R"><a href="#3-更新R" class="headerlink" title="3. 更新R"></a>3. 更新R</h2><hr>
-<h3 id="3-1-Fool-Way"><a href="#3-1-Fool-Way" class="headerlink" title="3.1 Fool Way"></a>3.1 Fool Way</h3><ol>
-<li><p>备份你的程序包<br>重新安装R软件时可能会把你已经安装的<code>package</code>覆盖， 为了避免，我们需要先进行备份(将<code>library</code>文件夹复制到他处)。<br>程序包位置：<code>C:\XXX\R\R-3.2.2\library</code><br><img src="http://i.imgbox.com/oRnNGM5x.png" alt="path2"></p>
-</li>
-<li><p>重复<code>1.1</code>和<code>1.2</code></p>
-</li>
-</ol>
-<h3 id="3-2-The-Harder-Way"><a href="#3-2-The-Harder-Way" class="headerlink" title="3.2 The Harder Way"></a>3.2 The Harder Way</h3><hr>
-<p>Now we set up the global library for R. More details about this is described in [Tal Galili’s blog post][1]. Although you are using the latest version of R, you can still follow my steps. It will help you set a global library for R. This will prevent some troubles in the future.</p>
-<p>Open your R. Run <code>chooseCRANmirror()</code> command line(Type it and hit <code>ENTER</code>) .Choose <code>China(Xiamen)</code>.</p>
-<p><img src="http://i.imgbox.com/nMC12nzx.jpg" alt="mirror" title="Choose Mirror"></p>
-<p>Run the following codes line by line.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">source(&quot;http://www.r-statistics.com/wp-content/uploads/2010/04/upgrading-R-on-windows.r.txt&quot;)</div><div class="line">Old.R.RunMe()</div></pre></td></tr></table></figure></p>
-<p><img src="http://i.imgbox.com/yn5SmnIH.jpg" alt="oldr" title="Set global lib"></p>
-<p>It will ask you whether or not to quit R. Just type <code>n</code> and hit <code>ENTER</code>. Then run <code>New.R.RunMe()</code> just the same way.</p>
-<p>Once you have done these, from now on, whenever you want to update to a new version of R in the future, all you will need to do are the following <strong>TWO</strong> steps:</p>
-<ol>
-<li>Download and install the new version of R</li>
-<li>Open your new R and run the following codes</li>
-</ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">source(&quot;http://www.r-statistics.com/wp-content/uploads/2010/04/upgrading-R-on-windows.r.txt&quot;)</div><div class="line">New.R.RunMe()</div></pre></td></tr></table></figure>
-]]></content>
-    </entry>
+    </summary>
     
+      <category term="技术" scheme="http://shichangshun.cn/categories/%E6%8A%80%E6%9C%AF/"/>
+    
+    
+      <category term="Markdown" scheme="http://shichangshun.cn/tags/Markdown/"/>
+    
+      <category term="LaTeX" scheme="http://shichangshun.cn/tags/LaTeX/"/>
+    
+  </entry>
   
-  
-</search>
+</feed>
