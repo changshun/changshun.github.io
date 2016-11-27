@@ -4,6 +4,86 @@
   
     
     <entry>
+      <title><![CDATA[Functional Python]]></title>
+      <url>http://shichangshun.cn/2016/11/27/python_functional/</url>
+      <content type="html"><![CDATA[<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">from</span> operator <span class="keyword">import</span> add</div><div class="line"><span class="keyword">from</span> functools <span class="keyword">import</span> partial, reduce</div></pre></td></tr></table></figure>
+<h2 id="列表解析"><a href="#列表解析" class="headerlink" title="列表解析"></a>列表解析</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">a_list = [item**<span class="number">2</span> <span class="keyword">for</span> item <span class="keyword">in</span> range(<span class="number">5</span>)]</div><div class="line">print(a_list)</div></pre></td></tr></table></figure>
+<pre><code>[0, 1, 4, 9, 16]
+</code></pre><h2 id="字典解析"><a href="#字典解析" class="headerlink" title="字典解析"></a>字典解析</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">a_dict = &#123;<span class="string">"%d^2"</span> % item: item**<span class="number">2</span> <span class="keyword">for</span> item <span class="keyword">in</span> range(<span class="number">5</span>)&#125;</div><div class="line">print(a_dict)</div></pre></td></tr></table></figure>
+<pre><code>{&apos;3^2&apos;: 9, &apos;4^2&apos;: 16, &apos;2^2&apos;: 4, &apos;1^2&apos;: 1, &apos;0^2&apos;: 0}
+</code></pre><h2 id="生成器"><a href="#生成器" class="headerlink" title="生成器"></a>生成器</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">a_generator = (item**<span class="number">2</span> <span class="keyword">for</span> item <span class="keyword">in</span> range(<span class="number">5</span>))</div></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">print(a_generator)</div><div class="line">print(next(a_generator))</div><div class="line">print(next(a_generator))</div></pre></td></tr></table></figure>
+<pre><code>&lt;generator object &lt;genexpr&gt; at 0x103d91200&gt;
+0
+1
+</code></pre><h2 id="iter函数和next函数"><a href="#iter函数和next函数" class="headerlink" title="iter函数和next函数"></a><code>iter</code>函数和<code>next</code>函数</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">a_list = [<span class="string">"Jim"</span>, <span class="string">"Tom"</span>, <span class="string">"Zhang"</span>]</div><div class="line">a_list_generator = iter(a_list)</div><div class="line">print(next(a_list_generator))</div><div class="line">print(next(a_list_generator))</div><div class="line">print(type(a_list), type(a_list_generator))</div></pre></td></tr></table></figure>
+<pre><code>Jim
+Tom
+&lt;class &apos;list&apos;&gt; &lt;class &apos;list_iterator&apos;&gt;
+</code></pre><h2 id="map函数"><a href="#map函数" class="headerlink" title="map函数"></a><code>map</code>函数</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">print(map(abs, range(<span class="number">-4</span>, <span class="number">5</span>)))</div><div class="line">print(list(map(abs, range(<span class="number">-4</span>, <span class="number">5</span>))))</div><div class="line">print(list(map(<span class="keyword">lambda</span> x: x**<span class="number">2</span>, range(<span class="number">5</span>))))</div><div class="line">print(list(map(<span class="keyword">lambda</span> x, y: x**y, range(<span class="number">1</span>, <span class="number">5</span>), range(<span class="number">1</span>, <span class="number">5</span>))))</div></pre></td></tr></table></figure>
+<pre><code>&lt;map object at 0x103f2dbe0&gt;
+[4, 3, 2, 1, 0, 1, 2, 3, 4]
+[0, 1, 4, 9, 16]
+[1, 4, 27, 256]
+</code></pre><h2 id="reduce函数"><a href="#reduce函数" class="headerlink" title="reduce函数"></a><code>reduce</code>函数</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">print(reduce(<span class="keyword">lambda</span> x, y: x+y, range(<span class="number">10</span>)))</div></pre></td></tr></table></figure>
+<pre><code>45
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 求n!</span></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">fn</span><span class="params">(n)</span>:</span></div><div class="line">    <span class="keyword">return</span> reduce(<span class="keyword">lambda</span> x, y: x*y,range(<span class="number">1</span>, n+<span class="number">1</span>))</div><div class="line">fn(<span class="number">5</span>)</div></pre></td></tr></table></figure>
+<pre><code>120
+</code></pre><h2 id="filter-函数"><a href="#filter-函数" class="headerlink" title="filter 函数"></a><code>filter</code> 函数</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> math</div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">isPrime</span><span class="params">(n)</span>:</span> <span class="comment"># 判定素数</span></div><div class="line">    <span class="keyword">if</span> n &gt; <span class="number">2</span>:</div><div class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">2</span>, int(math.sqrt(n)+<span class="number">1</span>)):</div><div class="line">            <span class="keyword">if</span> n % i == <span class="number">0</span>:</div><div class="line">                <span class="keyword">return</span> <span class="keyword">False</span></div><div class="line">    <span class="keyword">elif</span> n ==<span class="number">2</span>:</div><div class="line">        <span class="keyword">return</span> <span class="keyword">True</span></div><div class="line">    <span class="keyword">else</span>:</div><div class="line">        <span class="keyword">return</span> <span class="keyword">False</span></div><div class="line">    <span class="keyword">return</span> <span class="keyword">True</span></div><div class="line"></div><div class="line"></div><div class="line">list(filter(isPrime, range(<span class="number">100</span>)))</div></pre></td></tr></table></figure>
+<pre><code>[2,
+ 3,
+ 5,
+ 7,
+ 11,
+ 13,
+ 17,
+ 19,
+ 23,
+ 29,
+ 31,
+ 37,
+ 41,
+ 43,
+ 47,
+ 53,
+ 59,
+ 61,
+ 67,
+ 71,
+ 73,
+ 79,
+ 83,
+ 89,
+ 97]
+</code></pre><h2 id="any和all"><a href="#any和all" class="headerlink" title="any和all"></a><code>any</code>和<code>all</code></h2><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">print(all([<span class="number">0</span>, <span class="number">1</span>, <span class="number">2</span>]))</div></pre></td></tr></table></figure>
+<pre><code>False
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">print(any([<span class="number">0</span>, <span class="number">1</span>, <span class="number">2</span>]))</div></pre></td></tr></table></figure>
+<pre><code>True
+</code></pre><h2 id="enumerate函数"><a href="#enumerate函数" class="headerlink" title="enumerate函数"></a><code>enumerate</code>函数</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">for</span> item, index <span class="keyword">in</span> enumerate(range(<span class="number">1</span>, <span class="number">6</span>)):</div><div class="line">    print(<span class="string">"%d: %d"</span> % (index, item))</div></pre></td></tr></table></figure>
+<pre><code>1: 0
+2: 1
+3: 2
+4: 3
+5: 4
+</code></pre><h2 id="zip函数"><a href="#zip函数" class="headerlink" title="zip函数"></a><code>zip</code>函数</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">for</span> a, b <span class="keyword">in</span> zip([<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>], [<span class="string">"a"</span>, <span class="string">"b"</span>, <span class="string">"c"</span>]):</div><div class="line">    print(a, b)</div></pre></td></tr></table></figure>
+<pre><code>1 a
+2 b
+3 c
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">a_dict = dict(zip([<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>], [<span class="string">"a"</span>, <span class="string">"b"</span>, <span class="string">"c"</span>]))</div><div class="line">print(a_dict)</div></pre></td></tr></table></figure>
+<pre><code>{1: &apos;a&apos;, 2: &apos;b&apos;, 3: &apos;c&apos;}
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">print(int(<span class="string">"10010"</span>, base=<span class="number">2</span>))</div><div class="line">int_base_2 = partial(int, base=<span class="number">2</span>)</div><div class="line">print(int_base_2(<span class="string">"10010"</span>))</div><div class="line">int_base_2</div></pre></td></tr></table></figure>
+<pre><code>18
+18
+
+
+
+
+
+functools.partial(&lt;class &apos;int&apos;&gt;, base=2)
+</code></pre>]]></content>
+    </entry>
+    
+    <entry>
       <title><![CDATA[怎么在Python中使用正则表达式]]></title>
       <url>http://shichangshun.cn/2016/11/26/re/</url>
       <content type="html"><![CDATA[<p>source:<a href="https://docs.python.org/3/howto/regex.html" target="_blank" rel="external">Regular Expression HOWTO</a></p>
@@ -3811,21 +3891,6 @@ gR</p>
     </entry>
     
     <entry>
-      <title><![CDATA[在Rmarkdown使用中文的几种方法]]></title>
-      <url>http://shichangshun.cn/2015/10/06/%E6%8A%80%E6%9C%AF/rmarkdown/</url>
-      <content type="html"><![CDATA[<h1 id="在Rmarkdown使用中文的几种方法"><a href="#在Rmarkdown使用中文的几种方法" class="headerlink" title="在Rmarkdown使用中文的几种方法"></a>在<code>Rmarkdown</code>使用中文的几种方法</h1><h2 id="方法-一：加载包"><a href="#方法-一：加载包" class="headerlink" title="方法 一：加载包"></a>方法 一：加载包</h2><p>在<code>Rmd</code>文档头加载<code>xeCJK</code>包, 如下代码：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">header-includes:</div><div class="line">- \usepackage&#123;xeCJK&#125;</div></pre></td></tr></table></figure>
-<p><img src="/img/rmarkdown/xecjk.png" alt="xecjk"></p>
-<p><code>Knit PDF</code>前点击旁边的设置, 在<code>高级设置</code>的选项里设置<code>LaTeX Engine</code>为<code>xelatex</code></p>
-<h2 id="方法-二：-修改default-tex文件"><a href="#方法-二：-修改default-tex文件" class="headerlink" title="方法 二： 修改default.tex文件"></a>方法 二： 修改<code>default.tex</code>文件</h2><p>进入<code>R</code>的安装路径下<code>library</code>的<code>rmarkdown</code>的路径，（<code>/library/rmarkdown/rmd/latex</code>） 进入在<code>default.tex</code>文件内添加一行<code>\usepackage{xeCJK}</code><br>然后再运行含有中文汉字的<code>Rmd</code>文件。</p>
-<blockquote>
-<p>问：如何知道<code>library</code>的路径？</p>
-<p>答： <code>.libPaths()</code></p>
-</blockquote>
-]]></content>
-    </entry>
-    
-    <entry>
       <title><![CDATA[Mac下安装R和Rstudio]]></title>
       <url>http://shichangshun.cn/2015/10/06/%E6%8A%80%E6%9C%AF/2015-10-06-install-R-Mac/</url>
       <content type="html"><![CDATA[<p><section id="table-of-contents" class="toc"><br>  <header><br>    <h3>Overview</h3><br>  </header></section></p>
@@ -3874,6 +3939,21 @@ gR</p>
 <li>Open your new R and run the following codes</li>
 </ol>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">source(&quot;http://www.r-statistics.com/wp-content/uploads/2010/04/upgrading-R-on-windows.r.txt&quot;)</div><div class="line">New.R.RunMe()</div></pre></td></tr></table></figure>
+]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[在Rmarkdown使用中文的几种方法]]></title>
+      <url>http://shichangshun.cn/2015/10/06/%E6%8A%80%E6%9C%AF/rmarkdown/</url>
+      <content type="html"><![CDATA[<h1 id="在Rmarkdown使用中文的几种方法"><a href="#在Rmarkdown使用中文的几种方法" class="headerlink" title="在Rmarkdown使用中文的几种方法"></a>在<code>Rmarkdown</code>使用中文的几种方法</h1><h2 id="方法-一：加载包"><a href="#方法-一：加载包" class="headerlink" title="方法 一：加载包"></a>方法 一：加载包</h2><p>在<code>Rmd</code>文档头加载<code>xeCJK</code>包, 如下代码：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">header-includes:</div><div class="line">- \usepackage&#123;xeCJK&#125;</div></pre></td></tr></table></figure>
+<p><img src="/img/rmarkdown/xecjk.png" alt="xecjk"></p>
+<p><code>Knit PDF</code>前点击旁边的设置, 在<code>高级设置</code>的选项里设置<code>LaTeX Engine</code>为<code>xelatex</code></p>
+<h2 id="方法-二：-修改default-tex文件"><a href="#方法-二：-修改default-tex文件" class="headerlink" title="方法 二： 修改default.tex文件"></a>方法 二： 修改<code>default.tex</code>文件</h2><p>进入<code>R</code>的安装路径下<code>library</code>的<code>rmarkdown</code>的路径，（<code>/library/rmarkdown/rmd/latex</code>） 进入在<code>default.tex</code>文件内添加一行<code>\usepackage{xeCJK}</code><br>然后再运行含有中文汉字的<code>Rmd</code>文件。</p>
+<blockquote>
+<p>问：如何知道<code>library</code>的路径？</p>
+<p>答： <code>.libPaths()</code></p>
+</blockquote>
 ]]></content>
     </entry>
     

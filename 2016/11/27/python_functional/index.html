@@ -1,0 +1,86 @@
+<!DOCTYPE html><html lang="zh-Hans"><head><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><title> Functional Python | Changshun的Blog</title><meta name="description" content="Functional Python - Changshun"><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="short icon" href="/favicon.png"><link rel="stylesheet" href="/css/casual.css"><link rel="stylesheet" href="/css/semantic.min.css"><link rel="search" type="application/opensearchdescription+xml" href="http://shichangshun.cn/atom.xml" title="Changshun的Blog"></head><body><div class="sidebar"><div class="ui vertical inverted menu"><div class="h100"></div><h3 class="ui inverted aligned icon header"><div class="content"><a href="/" class="title-link">CHANGSHUN的BLOG</a></div></h3><div class="h50"></div><div class="side-nav"><a href="/" target="_self" class="item">HOME<i class="icon home"></i></a><a href="/categories" target="_self" class="item">CATEGORIES<i class="icon categories"></i></a><a href="/about" target="_self" class="item">ABOUT<i class="icon about"></i></a><a href="/archives" target="_self" class="item">ARCHIVES<i class="icon archives"></i></a><a href="/tags" target="_self" class="item">TAGS<i class="icon tags"></i></a><a href="/atom.xml" target="_self" class="item">RSS<i class="icon rss"></i></a></div><div class="item"><div class="ui inverted transparent icon input"><input type="text" placeholder="Search..." class="st-default-search-input"><i class="search icon"></i></div></div><div class="h50"></div></div><div class="h50 mq"><a class="ui teal big label"><i class="content icon"></i></a></div><div class="author-info"><a href="/" class="img-link"><img src="http://i.imgbox.com/v0MVVgnM.jpeg" class="author-photo ui tiny circular image"></a><h4 class="ui aligned icon header"><div class="content">Changshun</div></h4><p class="author-desc">R、Python、数据爱好者 | 还没找到工作，想找个固定收益的差事 | 詹🐶一只</p><div class="social-outer"><div class="social-inner"><a href="https://github.com/changshun" target="_blank" class="social-link"><i class="icon github"></i></a><a href="https://twitter.com/allenstoneshi" target="_blank" class="social-link"><i class="icon twitter"></i></a></div></div></div></div><div class="main"><div class="wrap"><section class="container"><div class="post"><article class="post-block"><h1 class="post-title">Functional Python</h1><div class="post-info"><div class="post-date"><h6 class="ui header"><i class="calendar icon"></i><div class="content">Nov 27, 2016</div></h6></div></div><div class="post-content"><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">from</span> operator <span class="keyword">import</span> add</div><div class="line"><span class="keyword">from</span> functools <span class="keyword">import</span> partial, reduce</div></pre></td></tr></table></figure>
+<h2 id="列表解析"><a href="#列表解析" class="headerlink" title="列表解析"></a>列表解析</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">a_list = [item**<span class="number">2</span> <span class="keyword">for</span> item <span class="keyword">in</span> range(<span class="number">5</span>)]</div><div class="line">print(a_list)</div></pre></td></tr></table></figure>
+<pre><code>[0, 1, 4, 9, 16]
+</code></pre><h2 id="字典解析"><a href="#字典解析" class="headerlink" title="字典解析"></a>字典解析</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">a_dict = &#123;<span class="string">"%d^2"</span> % item: item**<span class="number">2</span> <span class="keyword">for</span> item <span class="keyword">in</span> range(<span class="number">5</span>)&#125;</div><div class="line">print(a_dict)</div></pre></td></tr></table></figure>
+<pre><code>{&apos;3^2&apos;: 9, &apos;4^2&apos;: 16, &apos;2^2&apos;: 4, &apos;1^2&apos;: 1, &apos;0^2&apos;: 0}
+</code></pre><h2 id="生成器"><a href="#生成器" class="headerlink" title="生成器"></a>生成器</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">a_generator = (item**<span class="number">2</span> <span class="keyword">for</span> item <span class="keyword">in</span> range(<span class="number">5</span>))</div></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">print(a_generator)</div><div class="line">print(next(a_generator))</div><div class="line">print(next(a_generator))</div></pre></td></tr></table></figure>
+<pre><code>&lt;generator object &lt;genexpr&gt; at 0x103d91200&gt;
+0
+1
+</code></pre><h2 id="iter函数和next函数"><a href="#iter函数和next函数" class="headerlink" title="iter函数和next函数"></a><code>iter</code>函数和<code>next</code>函数</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">a_list = [<span class="string">"Jim"</span>, <span class="string">"Tom"</span>, <span class="string">"Zhang"</span>]</div><div class="line">a_list_generator = iter(a_list)</div><div class="line">print(next(a_list_generator))</div><div class="line">print(next(a_list_generator))</div><div class="line">print(type(a_list), type(a_list_generator))</div></pre></td></tr></table></figure>
+<pre><code>Jim
+Tom
+&lt;class &apos;list&apos;&gt; &lt;class &apos;list_iterator&apos;&gt;
+</code></pre><h2 id="map函数"><a href="#map函数" class="headerlink" title="map函数"></a><code>map</code>函数</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">print(map(abs, range(<span class="number">-4</span>, <span class="number">5</span>)))</div><div class="line">print(list(map(abs, range(<span class="number">-4</span>, <span class="number">5</span>))))</div><div class="line">print(list(map(<span class="keyword">lambda</span> x: x**<span class="number">2</span>, range(<span class="number">5</span>))))</div><div class="line">print(list(map(<span class="keyword">lambda</span> x, y: x**y, range(<span class="number">1</span>, <span class="number">5</span>), range(<span class="number">1</span>, <span class="number">5</span>))))</div></pre></td></tr></table></figure>
+<pre><code>&lt;map object at 0x103f2dbe0&gt;
+[4, 3, 2, 1, 0, 1, 2, 3, 4]
+[0, 1, 4, 9, 16]
+[1, 4, 27, 256]
+</code></pre><h2 id="reduce函数"><a href="#reduce函数" class="headerlink" title="reduce函数"></a><code>reduce</code>函数</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">print(reduce(<span class="keyword">lambda</span> x, y: x+y, range(<span class="number">10</span>)))</div></pre></td></tr></table></figure>
+<pre><code>45
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 求n!</span></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">fn</span><span class="params">(n)</span>:</span></div><div class="line">    <span class="keyword">return</span> reduce(<span class="keyword">lambda</span> x, y: x*y,range(<span class="number">1</span>, n+<span class="number">1</span>))</div><div class="line">fn(<span class="number">5</span>)</div></pre></td></tr></table></figure>
+<pre><code>120
+</code></pre><h2 id="filter-函数"><a href="#filter-函数" class="headerlink" title="filter 函数"></a><code>filter</code> 函数</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> math</div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">isPrime</span><span class="params">(n)</span>:</span> <span class="comment"># 判定素数</span></div><div class="line">    <span class="keyword">if</span> n &gt; <span class="number">2</span>:</div><div class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">2</span>, int(math.sqrt(n)+<span class="number">1</span>)):</div><div class="line">            <span class="keyword">if</span> n % i == <span class="number">0</span>:</div><div class="line">                <span class="keyword">return</span> <span class="keyword">False</span></div><div class="line">    <span class="keyword">elif</span> n ==<span class="number">2</span>:</div><div class="line">        <span class="keyword">return</span> <span class="keyword">True</span></div><div class="line">    <span class="keyword">else</span>:</div><div class="line">        <span class="keyword">return</span> <span class="keyword">False</span></div><div class="line">    <span class="keyword">return</span> <span class="keyword">True</span></div><div class="line"></div><div class="line"></div><div class="line">list(filter(isPrime, range(<span class="number">100</span>)))</div></pre></td></tr></table></figure>
+<pre><code>[2,
+ 3,
+ 5,
+ 7,
+ 11,
+ 13,
+ 17,
+ 19,
+ 23,
+ 29,
+ 31,
+ 37,
+ 41,
+ 43,
+ 47,
+ 53,
+ 59,
+ 61,
+ 67,
+ 71,
+ 73,
+ 79,
+ 83,
+ 89,
+ 97]
+</code></pre><h2 id="any和all"><a href="#any和all" class="headerlink" title="any和all"></a><code>any</code>和<code>all</code></h2><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">print(all([<span class="number">0</span>, <span class="number">1</span>, <span class="number">2</span>]))</div></pre></td></tr></table></figure>
+<pre><code>False
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">print(any([<span class="number">0</span>, <span class="number">1</span>, <span class="number">2</span>]))</div></pre></td></tr></table></figure>
+<pre><code>True
+</code></pre><h2 id="enumerate函数"><a href="#enumerate函数" class="headerlink" title="enumerate函数"></a><code>enumerate</code>函数</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">for</span> item, index <span class="keyword">in</span> enumerate(range(<span class="number">1</span>, <span class="number">6</span>)):</div><div class="line">    print(<span class="string">"%d: %d"</span> % (index, item))</div></pre></td></tr></table></figure>
+<pre><code>1: 0
+2: 1
+3: 2
+4: 3
+5: 4
+</code></pre><h2 id="zip函数"><a href="#zip函数" class="headerlink" title="zip函数"></a><code>zip</code>函数</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">for</span> a, b <span class="keyword">in</span> zip([<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>], [<span class="string">"a"</span>, <span class="string">"b"</span>, <span class="string">"c"</span>]):</div><div class="line">    print(a, b)</div></pre></td></tr></table></figure>
+<pre><code>1 a
+2 b
+3 c
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">a_dict = dict(zip([<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>], [<span class="string">"a"</span>, <span class="string">"b"</span>, <span class="string">"c"</span>]))</div><div class="line">print(a_dict)</div></pre></td></tr></table></figure>
+<pre><code>{1: &apos;a&apos;, 2: &apos;b&apos;, 3: &apos;c&apos;}
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">print(int(<span class="string">"10010"</span>, base=<span class="number">2</span>))</div><div class="line">int_base_2 = partial(int, base=<span class="number">2</span>)</div><div class="line">print(int_base_2(<span class="string">"10010"</span>))</div><div class="line">int_base_2</div></pre></td></tr></table></figure>
+<pre><code>18
+18
+
+
+
+
+
+functools.partial(&lt;class &apos;int&apos;&gt;, base=2)
+</code></pre></div></article></div></section><footer><div class="paginator"><a href="/2016/11/26/re/" class="next"><button class="ui button teal">NEXT</button></a></div><div data-thread-key="2016/11/27/python_functional/" data-title="Functional Python" data-url="http://shichangshun.cn/2016/11/27/python_functional/" class="ds-share"><div class="ds-share-inline"><ul class="ds-share-icons-16"><li data-toggle="ds-share-icons-more"><span class="ds-more">分享到：</span></li><li><a href="javascript:void(0);" data-service="weibo" class="ds-weibo">微博</a></li><li><a href="javascript:void(0);" data-service="qqt" class="ds-qqt">腾讯微博</a></li><li><a href="javascript:void(0);" data-service="wechat" class="ds-wechat">微信</a></li></ul></div></div><div data-thread-key="2016/11/27/python_functional/" data-title="Functional Python" data-url="http://shichangshun.cn/2016/11/27/python_functional/" data-author-key="1" class="ds-thread"></div><script>var duoshuoQuery = {short_name:"changshun"};
+(function() {
+  var ds = document.createElement('script');
+  ds.type = 'text/javascript';ds.async = true;
+  ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+  ds.charset = 'UTF-8';
+  (document.getElementsByTagName('head')[0] 
+   || document.getElementsByTagName('body')[0]).appendChild(ds);
+})();
+
+</script><div class="copyright"><p>© 2015 - 2016 <a href="http://shichangshun.cn">Changshun</a>, powered by <a href="https://hexo.io/" target="_blank">Hexo</a> and theme by <a href="https://github.com/littlewin-wang/hexo-theme-casual" target="_blank">casual</a></p></div></footer></div><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script><script src="/js/jquery.scrollex.js"></script><script src="/js/jquery.goup.min.js"></script><script src="/js/semantic.min.js"></script><script src="/js/casual.js"></script><script async src="//cdn.bootcss.com/mathjax/2.6.1/MathJax.js?config=TeX-MML-AM_CHTML"></script><script>$(document).ready(function(){$.goup({trigger:100,bottomOffset:100,locationOffset: 0,title:'',titleAsText:true});});</script><script>(function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){(w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);})(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+_st('install','TvAnFS4AVxjiJUvrZJRB','2.0.0');</script><script>(function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;e=o.createElement(i);r=o.getElementsByTagName(i)[0];e.src='//www.google-analytics.com/analytics.js';r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));ga('create',"UA-65933410-1",'auto');ga('send','pageview');</script></div></body></html>
