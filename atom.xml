@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://shichangshun.cn/"/>
-  <updated>2016-11-08T10:31:58.000Z</updated>
+  <updated>2016-11-27T03:23:39.000Z</updated>
   <id>http://shichangshun.cn/</id>
   
   <author>
@@ -14,6 +14,195 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>怎么在Python中使用正则表达式</title>
+    <link href="http://shichangshun.cn/2016/11/26/re/"/>
+    <id>http://shichangshun.cn/2016/11/26/re/</id>
+    <published>2016-11-26T02:15:30.000Z</published>
+    <updated>2016-11-27T03:23:39.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>source:<a href="https://docs.python.org/3/howto/regex.html" target="_blank" rel="external">Regular Expression HOWTO</a></p>
+<h1 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h1><p><strong>正则表达式</strong>(Regular expressions, REs,regexes regex patterns)在<code>python</code>中主要通过<code>re</code>包实现。使用正则表达式，你可以匹配任意你想匹配的字符串， 比如email, 电话号码，英文单词，$\TeX$命令等。</p>
+<p>正则表达式的pattern被编译成一系列的bytecode,然后通过<code>C</code>语言写的引擎执行匹配。高级的使用者应当考虑不同的写法的执行速度。</p>
+<h1 id="简单的patterns"><a href="#简单的patterns" class="headerlink" title="简单的patterns"></a>简单的<code>patterns</code></h1><h2 id="匹配字符"><a href="#匹配字符" class="headerlink" title="匹配字符"></a>匹配字符</h2><h3 id="元字符-metacharacters"><a href="#元字符-metacharacters" class="headerlink" title="元字符(metacharacters)"></a>元字符(metacharacters)</h3><ul>
+<li><code>.</code> 匹配除换行符以外的任意字符</li>
+<li><code>[]</code> 中括号里的任一字符出现一次</li>
+<li><code>\d</code> 匹配数字,相当于[0-9]</li>
+<li><code>\D</code> 匹配非数字</li>
+<li><code>\s</code> 匹配任意的空白符</li>
+<li><code>\S</code> 匹配任意的非空白符</li>
+<li><code>\w</code> 匹配字母或数字或下划线或汉字</li>
+<li><code>\W</code> 匹配非字母或数字或下划线或汉字</li>
+<li><code>^</code>  匹配字符串的开始</li>
+<li><code>$</code>  匹配字符串的结束u</li>
+</ul>
+<h3 id="重复"><a href="#重复" class="headerlink" title="重复"></a>重复</h3><ul>
+<li><code>*</code> 重复0次或多次</li>
+<li><code>+</code> 重复一次或更多次</li>
+<li><code>?</code> 重复0次或1词</li>
+<li><code>{n}</code> 重复n次</li>
+<li><code>{n,}</code> 重复n次或更多次</li>
+<li><code>{n, m}</code> 重复n次到m次</li>
+</ul>
+<h1 id="在python中使用正则表达式"><a href="#在python中使用正则表达式" class="headerlink" title="在python中使用正则表达式"></a>在<code>python</code>中使用正则表达式</h1><p>在<code>python</code>中，<code>re</code>模块为我们提供了使用正则表达式的引擎。</p>
+<h2 id="编译正则表达式"><a href="#编译正则表达式" class="headerlink" title="编译正则表达式"></a>编译正则表达式</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> re</div><div class="line">p = re.compile(<span class="string">'ab*'</span>)</div><div class="line">p</div></pre></td></tr></table></figure>
+<pre><code>re.compile(r&apos;ab*&apos;, re.UNICODE)
+</code></pre><p><code>re.compile</code>函数能产生pattern对象，我们可以用pattern匹配字符实现查找或者替代等功能。<code>re.compile</code>还有其它一些语法变量，比如忽略大小写等。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">p = re.compile(<span class="string">'ab.*'</span>, re.IGNORECASE)</div><div class="line">p</div></pre></td></tr></table></figure>
+<pre><code>re.compile(r&apos;ab.*&apos;, re.IGNORECASE|re.UNICODE)
+</code></pre><h2 id="进行匹配"><a href="#进行匹配" class="headerlink" title="进行匹配"></a>进行匹配</h2><p>如果<code>RE</code>是某个<code>pattern</code></p>
+<ul>
+<li><code>match()</code> 是否是以<code>RE</code>开头的</li>
+<li><code>search()</code> 扫描整个字符串，检查是否存在<code>RE</code></li>
+<li><code>findall()</code> 寻找所有的子字符串， 返回一个list</li>
+<li><code>finditer()</code> 类似上， 返回一个<code>iterator</code></li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">a = p.match(<span class="string">'XYZ'</span>)</div><div class="line">a <span class="comment"># 返回None</span></div></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"></div></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">m = p.match(<span class="string">'abcde'</span>)</div><div class="line">m</div></pre></td></tr></table></figure>
+<pre><code>&lt;_sre.SRE_Match object; span=(0, 5), match=&apos;abcde&apos;&gt;
+</code></pre><p>使用<code>match()</code>匹配，返回的结果是一个<code>match</code>对象，如果想调用结果的话，参考下面的几种方法:</p>
+<ul>
+<li><code>group()</code>: 返回<code>RE</code>匹配的字符串</li>
+<li><code>start()</code>: 返回匹配结果的开始位置</li>
+<li><code>end()</code>: 返回匹配结果的末尾位置</li>
+<li><code>span()</code>: 返回字符位置的区间</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">m.group()</div></pre></td></tr></table></figure>
+<pre><code>&apos;abcde&apos;
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">m.start(), m.end()</div></pre></td></tr></table></figure>
+<pre><code>(0, 5)
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">m.span()</div></pre></td></tr></table></figure>
+<pre><code>(0, 5)
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">m = p.match(<span class="string">'xabcde'</span>)</div><div class="line">m <span class="comment"># match只能匹配以`RE`开始的字符串</span></div></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">m  = p.search(<span class="string">"xabcde"</span>)</div><div class="line">m.group()</div></pre></td></tr></table></figure>
+<pre><code>&apos;abcde&apos;
+</code></pre><p>在实际编程时， 往往把<code>match</code>对象存成一个变量， 然后检查是否是空, 如下</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">p = re.compile(<span class="string">'[a-z]+'</span>,  re.IGNORECASE)</div><div class="line">m = p.match(<span class="string">"Abdedfscf"</span>)</div><div class="line"><span class="keyword">if</span> m:</div><div class="line">    print(<span class="string">'Matched found:'</span>, m.group())</div><div class="line"><span class="keyword">else</span>:</div><div class="line">    print(<span class="string">'Matched not found'</span>)</div></pre></td></tr></table></figure>
+<pre><code>Matched found: Abdedfscf
+</code></pre><p>如果想要返回所有的匹配字符串的话， 可以使用<code>findall()</code></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">p = re.compile(<span class="string">'[\d.]+'</span>)</div><div class="line">p.findall(<span class="string">'1.4 billions people in 34 provinces'</span>)</div></pre></td></tr></table></figure>
+<pre><code>[&apos;1.4&apos;, &apos;34&apos;]
+</code></pre><p>当然也可以返回一个迭代对象， 以便进行迭代操作</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">p = re.compile(<span class="string">'[\d.]+'</span>)</div><div class="line">iterator = p.finditer(<span class="string">'1.4 billions people in 34 provinces'</span>)</div><div class="line"><span class="keyword">for</span> it <span class="keyword">in</span> iterator:</div><div class="line">    print(it.span())</div></pre></td></tr></table></figure>
+<pre><code>(0, 3)
+(23, 25)
+</code></pre><h2 id="Module-Level-Functions"><a href="#Module-Level-Functions" class="headerlink" title="Module-Level Functions"></a>Module-Level Functions</h2><p>如果嫌每次都使用<code>compile（）</code>生成<code>RE</code>太麻烦， 你也可以像下面这种方式进行匹配:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">print(re.findall(<span class="string">r'[\d.]+'</span>, <span class="string">'1.4 billions people in 34 provinces'</span>))</div></pre></td></tr></table></figure>
+<pre><code>[&apos;1.4&apos;, &apos;34&apos;]
+</code></pre><p>这里的<code>r</code>表示regex的意思</p>
+<h2 id="Compilation-Flags"><a href="#Compilation-Flags" class="headerlink" title="Compilation Flags"></a>Compilation Flags</h2><p>允许你修改一些参数， 实现大小写忽略， 多行匹配等功能</p>
+<h3 id="I-IGNORECASE"><a href="#I-IGNORECASE" class="headerlink" title="I  IGNORECASE"></a><code>I  IGNORECASE</code></h3><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">re.findall(<span class="string">r'\ba[a-z]+'</span>, <span class="string">"abc, abandon, banana, Ana, AB"</span>,re.I)</div></pre></td></tr></table></figure>
+<pre><code>[&apos;abc&apos;, &apos;abandon&apos;, &apos;Ana&apos;, &apos;AB&apos;]
+</code></pre><p><code>A</code> <code>ASCII</code></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">re.findall(<span class="string">r'\w+'</span>, <span class="string">"hello! Hey! 你好"</span>,re.A)</div></pre></td></tr></table></figure>
+<pre><code>[&apos;hello&apos;, &apos;Hey&apos;]
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">re.findall(<span class="string">r'\w+'</span>, <span class="string">"hello! Hey! 你好"</span>)</div></pre></td></tr></table></figure>
+<pre><code>[&apos;hello&apos;, &apos;Hey&apos;, &apos;你好&apos;]
+</code></pre><h2 id="更多元字符"><a href="#更多元字符" class="headerlink" title="更多元字符"></a>更多元字符</h2><ul>
+<li><code>|</code> 或 操作符 需要注意的时<code>abc|xyz</code>匹配的时<code>abc</code>或<code>xyz</code>， 而不是<code>c</code>或<code>x</code></li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">re.findall(<span class="string">r'Bill|Jim'</span>, <span class="string">"Tom, Jimmy, Zhang&amp;Bill"</span>)</div></pre></td></tr></table></figure>
+<pre><code>[&apos;Jim&apos;, &apos;Bill&apos;]
+</code></pre><h2 id="分组-Grouping"><a href="#分组-Grouping" class="headerlink" title="分组(Grouping)"></a>分组(Grouping)</h2><p>有时候我们进行匹配的时候会需要把匹配的结果区分为不同的组成部分，这我们就用得到分组<code>grouping</code>， 我们使用’<code>()</code>‘作为分组的标记</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">p = re.compile(<span class="string">'(a(b)c)d'</span>)</div><div class="line">m = p.match(<span class="string">'abcd'</span>)</div><div class="line">m.group(<span class="number">0</span>)</div></pre></td></tr></table></figure>
+<pre><code>&apos;abcd&apos;
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">m.group(<span class="number">1</span>)</div></pre></td></tr></table></figure>
+<pre><code>&apos;abc&apos;
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">m.group(<span class="number">2</span>)</div></pre></td></tr></table></figure>
+<pre><code>&apos;b&apos;
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">mail = <span class="string">"mayun@alibaba.com.cn mail of Jack Ma"</span></div><div class="line">p = re.compile(<span class="string">"(^[a-z][a-z1-9._]+)@([a-z1-9][a-z1-9._]+)"</span>, re.I)</div><div class="line">m = p.match(mail)</div></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">m.group(<span class="number">0</span>)</div></pre></td></tr></table></figure>
+<pre><code>&apos;mayun@alibaba.com.cn&apos;
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">m.group(<span class="number">1</span>)</div></pre></td></tr></table></figure>
+<pre><code>&apos;mayun&apos;
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">m.group(<span class="number">2</span>)</div></pre></td></tr></table></figure>
+<pre><code>&apos;alibaba.com.cn&apos;
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">m.groups()</div></pre></td></tr></table></figure>
+<pre><code>(&apos;mayun&apos;, &apos;alibaba.com.cn&apos;)
+</code></pre><h2 id="分组命名"><a href="#分组命名" class="headerlink" title="分组命名"></a>分组命名</h2><p>分组命名是Python独有的正则的功能， 通过<code>(?P&lt;name&gt;...)</code>可以为分组命名</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">mail = <span class="string">"mayun@alibaba.com.cn mail of Jack Ma"</span></div><div class="line">p = re.compile(<span class="string">"(?P&lt;User&gt;^[a-z][a-z1-9._]+)@(?P&lt;Company&gt;[a-z1-9][a-z1-9._]+)"</span>, re.I)</div><div class="line">m = p.match(mail)</div></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">m.group(<span class="string">'User'</span>)</div></pre></td></tr></table></figure>
+<pre><code>&apos;mayun&apos;
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">m.group(<span class="string">'Company'</span>)</div></pre></td></tr></table></figure>
+<pre><code>&apos;alibaba.com.cn&apos;
+</code></pre><h1 id="字符修改"><a href="#字符修改" class="headerlink" title="字符修改"></a>字符修改</h1><ul>
+<li><code>split()</code> 在正则匹配的位置分离</li>
+<li><code>sub()</code> 查找替代</li>
+<li><code>subn()</code></li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">re.split(<span class="string">r"\W+"</span>, <span class="string">'This is a test, short and sweet, of split().'</span>)</div></pre></td></tr></table></figure>
+<pre><code>[&apos;This&apos;, &apos;is&apos;, &apos;a&apos;, &apos;test&apos;, &apos;short&apos;, &apos;and&apos;, &apos;sweet&apos;, &apos;of&apos;, &apos;split&apos;, &apos;&apos;]
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">re.split(<span class="string">r"\W+"</span>, <span class="string">'This is a test, short and sweet, of split().'</span>,<span class="number">3</span>) <span class="comment"># 3 是分割次数</span></div></pre></td></tr></table></figure>
+<pre><code>[&apos;This&apos;, &apos;is&apos;, &apos;a&apos;, &apos;test, short and sweet, of split().&apos;]
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">re.split(<span class="string">r"(\W+)"</span>, <span class="string">'This is a test, short and sweet, of split().'</span>) <span class="comment"># 保留符合条件的分割项</span></div></pre></td></tr></table></figure>
+<pre><code>[&apos;This&apos;,
+ &apos; &apos;,
+ &apos;is&apos;,
+ &apos; &apos;,
+ &apos;a&apos;,
+ &apos; &apos;,
+ &apos;test&apos;,
+ &apos;, &apos;,
+ &apos;short&apos;,
+ &apos; &apos;,
+ &apos;and&apos;,
+ &apos; &apos;,
+ &apos;sweet&apos;,
+ &apos;, &apos;,
+ &apos;of&apos;,
+ &apos; &apos;,
+ &apos;split&apos;,
+ &apos;().&apos;,
+ &apos;&apos;]
+</code></pre><h2 id="查找并替代"><a href="#查找并替代" class="headerlink" title="查找并替代"></a>查找并替代</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">p = re.compile(<span class="string">'(blue|white|red)'</span>)</div><div class="line">p.sub(<span class="string">'colour'</span>, <span class="string">'blue socks and red shoes'</span>)</div></pre></td></tr></table></figure>
+<pre><code>&apos;colour socks and colour shoes&apos;
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">p.sub(<span class="string">'colour'</span>, <span class="string">'blue socks and red shoes'</span>, count=<span class="number">1</span>)</div></pre></td></tr></table></figure>
+<pre><code>&apos;colour socks and red shoes&apos;
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">p.subn(<span class="string">'colour'</span>, <span class="string">'blue socks and red shoes'</span>)</div></pre></td></tr></table></figure>
+<pre><code>(&apos;colour socks and colour shoes&apos;, 2)
+</code></pre><h1 id="常见问题"><a href="#常见问题" class="headerlink" title="常见问题"></a>常见问题</h1><h2 id="使用正则还是字符串方法"><a href="#使用正则还是字符串方法" class="headerlink" title="使用正则还是字符串方法"></a>使用正则还是字符串方法</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">string1 = <span class="string">"swordfish"</span></div><div class="line">string1.replace(<span class="string">"word"</span>, <span class="string">'deed'</span>)</div></pre></td></tr></table></figure>
+<pre><code>&apos;sdeedfish&apos;
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">p = re.compile(<span class="string">'word'</span>)</div><div class="line">p.sub(string1, <span class="string">'deed'</span>)</div></pre></td></tr></table></figure>
+<pre><code>&apos;deed&apos;
+</code></pre><h2 id="match-和search"><a href="#match-和search" class="headerlink" title="match()和search"></a><code>match()</code>和<code>search</code></h2><p>前者只匹配从0位置开始的结果， <code>search()</code>会匹配不从0开始的结果</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">print(re.match(<span class="string">r'super'</span>, <span class="string">'superstition'</span>).span())</div></pre></td></tr></table></figure>
+<pre><code>(0, 5)
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">print(re.match(<span class="string">'super'</span>, <span class="string">'insuperable'</span>))</div></pre></td></tr></table></figure>
+<pre><code>None
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">print(re.search(<span class="string">'super'</span>, <span class="string">'insuperable'</span>).span())</div></pre></td></tr></table></figure>
+<pre><code>(2, 7)
+</code></pre><h2 id="贪婪和非贪婪"><a href="#贪婪和非贪婪" class="headerlink" title="贪婪和非贪婪"></a>贪婪和非贪婪</h2><p>前者是指匹配尽可能多的符合条件的字符， 后者则会匹配尽可能少的或指定的符合条件的字符</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">s = <span class="string">'&lt;html&gt;&lt;head&gt;&lt;title&gt;Title&lt;/title&gt;'</span></div><div class="line">len(s)</div></pre></td></tr></table></figure>
+<pre><code>32
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">print(re.match(<span class="string">'&lt;.*&gt;'</span>, s).span())</div></pre></td></tr></table></figure>
+<pre><code>(0, 32)
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">print(re.match(<span class="string">'&lt;.*&gt;'</span>, s).group())</div></pre></td></tr></table></figure>
+<pre><code>&lt;html&gt;&lt;head&gt;&lt;title&gt;Title&lt;/title&gt;
+</code></pre><p>如果想要非贪婪可以使用<code>?</code></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">print(re.match(<span class="string">'&lt;.*?&gt;'</span>, s).group())</div></pre></td></tr></table></figure>
+<pre><code>&lt;html&gt;
+</code></pre><h2 id="使用re-VERBOSE"><a href="#使用re-VERBOSE" class="headerlink" title="使用re.VERBOSE"></a>使用<code>re.VERBOSE</code></h2><p>有时候我们要匹配比较复杂的文本时，正则表达式要写很长，如果携程一行的话，可读性就比较差，可以使用<code>re.VERBOSE</code>增加pattern的易读性</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">pat = re.compile(<span class="string">r"""</span></div><div class="line">\s*                 # Skip leading whitespace</div><div class="line"> (?P&lt;header&gt;[^:]+)   # Header name</div><div class="line"> \s* :               # Whitespace, and a colon</div><div class="line"> (?P&lt;value&gt;.*?)      # The header's value -- *? used to</div><div class="line">                     # lose the following trailing whitespace</div><div class="line"> \s*$                # Trailing whitespace to end-of-line</div><div class="line">""")</div></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">pat = re.compile(<span class="string">r"\s*(?P&lt;header&gt;[^:]+)\s*:(?P&lt;value&gt;.*?)\s*$"</span>)</div></pre></td></tr></table></figure>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;source:&lt;a href=&quot;https://docs.python.org/3/howto/regex.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Regular Expression HOWTO&lt;/a&gt;&lt;/p&gt;
+&lt;h1 id=&quot;简介&quot;&gt;&lt;
+    
+    </summary>
+    
+      <category term="Python" scheme="http://shichangshun.cn/categories/Python/"/>
+    
+    
+      <category term="Python" scheme="http://shichangshun.cn/tags/Python/"/>
+    
+      <category term="正则表达式" scheme="http://shichangshun.cn/tags/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/"/>
+    
+  </entry>
   
   <entry>
     <title>货币政策及货币政策工具</title>
@@ -3974,44 +4163,6 @@ gR</p>
     
     
       <category term="R" scheme="http://shichangshun.cn/tags/R/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>测试:使用MathJax输入LaTeX公式</title>
-    <link href="http://shichangshun.cn/2015/10/06/%E6%8A%80%E6%9C%AF/2015-10-06-Mathjax/"/>
-    <id>http://shichangshun.cn/2015/10/06/技术/2015-10-06-Mathjax/</id>
-    <published>2015-10-06T13:15:59.000Z</published>
-    <updated>2016-07-07T07:54:49.000Z</updated>
-    
-    <content type="html"><![CDATA[<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
-    </script>
-
-
-
-<figure class="highlight plain"><figcaption><span>type="text/javascript"</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">src=&quot;http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML&quot;&gt;</div><div class="line">&lt;/script&gt;</div></pre></td></tr></table></figure>
-<p>在 <code>_config.yml</code> 配置添加如下代码</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">auto_ids: true</div><div class="line">  footnote_nr: 1</div><div class="line">  entity_output: as_char</div><div class="line">  toc_levels: 1..6</div><div class="line">  use_coderay: false</div><div class="line">  mathjax: true</div></pre></td></tr></table></figure>
-<p>$$\bar{Y} = AK^{\alpha}L^{1-\alpha}$$</p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;script type=&quot;text/javascript&quot; src=&quot;http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML&quot;&gt;
-    &lt;/script&gt;
-
-
-
-&lt;figure
-    
-    </summary>
-    
-      <category term="技术" scheme="http://shichangshun.cn/categories/%E6%8A%80%E6%9C%AF/"/>
-    
-    
-      <category term="Markdown" scheme="http://shichangshun.cn/tags/Markdown/"/>
-    
-      <category term="LaTeX" scheme="http://shichangshun.cn/tags/LaTeX/"/>
     
   </entry>
   
