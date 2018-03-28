@@ -3891,6 +3891,21 @@ gR</p>
     </entry>
     
     <entry>
+      <title><![CDATA[在Rmarkdown使用中文的几种方法]]></title>
+      <url>http://shichangshun.cn/2015/10/06/%E6%8A%80%E6%9C%AF/rmarkdown/</url>
+      <content type="html"><![CDATA[<h1 id="在Rmarkdown使用中文的几种方法"><a href="#在Rmarkdown使用中文的几种方法" class="headerlink" title="在Rmarkdown使用中文的几种方法"></a>在<code>Rmarkdown</code>使用中文的几种方法</h1><h2 id="方法-一：加载包"><a href="#方法-一：加载包" class="headerlink" title="方法 一：加载包"></a>方法 一：加载包</h2><p>在<code>Rmd</code>文档头加载<code>xeCJK</code>包, 如下代码：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">header-includes:</div><div class="line">- \usepackage&#123;xeCJK&#125;</div></pre></td></tr></table></figure>
+<p><img src="/img/rmarkdown/xecjk.png" alt="xecjk"></p>
+<p><code>Knit PDF</code>前点击旁边的设置, 在<code>高级设置</code>的选项里设置<code>LaTeX Engine</code>为<code>xelatex</code></p>
+<h2 id="方法-二：-修改default-tex文件"><a href="#方法-二：-修改default-tex文件" class="headerlink" title="方法 二： 修改default.tex文件"></a>方法 二： 修改<code>default.tex</code>文件</h2><p>进入<code>R</code>的安装路径下<code>library</code>的<code>rmarkdown</code>的路径，（<code>/library/rmarkdown/rmd/latex</code>） 进入在<code>default.tex</code>文件内添加一行<code>\usepackage{xeCJK}</code><br>然后再运行含有中文汉字的<code>Rmd</code>文件。</p>
+<blockquote>
+<p>问：如何知道<code>library</code>的路径？</p>
+<p>答： <code>.libPaths()</code></p>
+</blockquote>
+]]></content>
+    </entry>
+    
+    <entry>
       <title><![CDATA[Mac下安装R和Rstudio]]></title>
       <url>http://shichangshun.cn/2015/10/06/%E6%8A%80%E6%9C%AF/2015-10-06-install-R-Mac/</url>
       <content type="html"><![CDATA[<p><section id="table-of-contents" class="toc"><br>  <header><br>    <h3>Overview</h3><br>  </header></section></p>
@@ -3939,21 +3954,6 @@ gR</p>
 <li>Open your new R and run the following codes</li>
 </ol>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">source(&quot;http://www.r-statistics.com/wp-content/uploads/2010/04/upgrading-R-on-windows.r.txt&quot;)</div><div class="line">New.R.RunMe()</div></pre></td></tr></table></figure>
-]]></content>
-    </entry>
-    
-    <entry>
-      <title><![CDATA[在Rmarkdown使用中文的几种方法]]></title>
-      <url>http://shichangshun.cn/2015/10/06/%E6%8A%80%E6%9C%AF/rmarkdown/</url>
-      <content type="html"><![CDATA[<h1 id="在Rmarkdown使用中文的几种方法"><a href="#在Rmarkdown使用中文的几种方法" class="headerlink" title="在Rmarkdown使用中文的几种方法"></a>在<code>Rmarkdown</code>使用中文的几种方法</h1><h2 id="方法-一：加载包"><a href="#方法-一：加载包" class="headerlink" title="方法 一：加载包"></a>方法 一：加载包</h2><p>在<code>Rmd</code>文档头加载<code>xeCJK</code>包, 如下代码：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">header-includes:</div><div class="line">- \usepackage&#123;xeCJK&#125;</div></pre></td></tr></table></figure>
-<p><img src="/img/rmarkdown/xecjk.png" alt="xecjk"></p>
-<p><code>Knit PDF</code>前点击旁边的设置, 在<code>高级设置</code>的选项里设置<code>LaTeX Engine</code>为<code>xelatex</code></p>
-<h2 id="方法-二：-修改default-tex文件"><a href="#方法-二：-修改default-tex文件" class="headerlink" title="方法 二： 修改default.tex文件"></a>方法 二： 修改<code>default.tex</code>文件</h2><p>进入<code>R</code>的安装路径下<code>library</code>的<code>rmarkdown</code>的路径，（<code>/library/rmarkdown/rmd/latex</code>） 进入在<code>default.tex</code>文件内添加一行<code>\usepackage{xeCJK}</code><br>然后再运行含有中文汉字的<code>Rmd</code>文件。</p>
-<blockquote>
-<p>问：如何知道<code>library</code>的路径？</p>
-<p>答： <code>.libPaths()</code></p>
-</blockquote>
 ]]></content>
     </entry>
     
